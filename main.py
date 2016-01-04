@@ -5,7 +5,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
 
 # configuration
 DATABASE = './db/information.db'
-DEBUG = True
+DEBUG = False
 
 
 app = Flask(__name__)
