@@ -51,7 +51,7 @@
     <div class="pure-u-xl-2-24 pure-u-sm-0-24 pure-u-md-1-24">
 	</div>
     <div class="pure-u-xl-20-24 pure-u-sm-24-24 pure-u-md-22-24">
-         <div class="posts">
+         <div class="posts pure-u-24-24">
             <h1>Si Chen</h1>
             <h4>Department of Computer Science and Engineering</h4>
 <h4>University at Buffalo - SUNY </h4><h4>Office: 301 Davis Hall, Buffalo NY</h4>
@@ -69,7 +69,7 @@
                     <div class="pure-u-5-24">
                         <img alt="My avatar" class="pure-img-responsive pica" src="{{ url_for('static', filename='images/si.jpg') }}">
                     </div>
- <div class="post-description_sameline pure-u-17-24">
+ <div class="post-description_sameline pure-u-18-24">
 
            <nav class="nav">
                 <ul class="nav-list">
@@ -116,7 +116,7 @@ During my PhD study, my primary research topic is exploring the novel ideas and 
                     </div> -->
                 </section>
             </div>
-            <div class="posts">
+            <div class="posts pure-u-24-24">
                 <h1 class="content-subhead">Research Interests</h1>
                 <div class="post-description_sameline"><p>My research interests include physical layer security, cyber-physical system security, wireless system and smartphone-enabled crowdsourcing system, with current focus on exploring and improving the cloud-assisted mobile sensing security.</p>
                 </div>
@@ -129,7 +129,7 @@ During my PhD study, my primary research topic is exploring the novel ideas and 
                 <section class="post">
                         <ul> 
                             {% for entrie in entries %}
-                            <div class="pure-u-18-24 publication">
+                            <div class="pure-u-17-24 publication">
                                 {% if entrie['type'] == 1 %}
                                 <a class="post-category post-category-design">C</a> 
                                 {% endif %}
@@ -156,7 +156,7 @@ During my PhD study, my primary research topic is exploring the novel ideas and 
                                     | <a href="{{ entrie['urlslides'] }}" target="_blank">[slides]</a>
                                 {% endif %}
                             </div>
-                            <div class="pure-u-3-24">
+                            <div class="pure-u-2-24">
                                 <a class="post-category" href="{{ entrie['urlcite'] }}">{{ entrie['cite'] }}</a> 
                             </div>
                             <div class="pure-u-2-24">
@@ -168,7 +168,7 @@ During my PhD study, my primary research topic is exploring the novel ideas and 
             </div>
 
 
-            <div class="posts">
+            <div class="posts pure-u-24-24">
                 <h1 class="content-subhead">Honors and Awards</h1>
 
                 <section class="post post-description_sameline ">
@@ -186,7 +186,7 @@ During my PhD study, my primary research topic is exploring the novel ideas and 
                 </section>
             </div>
 
-            <div class="posts">
+            <div class="posts pure-u-24-24">
                 <h1 class="content-subhead">Professional Services</h1>
 
                 <section class="post post-description_sameline ">
