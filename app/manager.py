@@ -11,6 +11,7 @@ if os.path.exists('.env'):
 from app import create_app
 from flask.ext.script import Manager, Shell
 
+# 通过配置创建 app 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 manager = Manager(app)
 
