@@ -11,7 +11,7 @@ def update_citation(id, citation, conn):
 	conn.commit()
 
 if __name__ == "__main__":
-	db_filename = './db/information.db'
+	db_filename = '/var/www/Dodrio/db/information.db'
 	paper_data = scrape_author("https://scholar.google.com/citations?user=DDLTYpAAAAAJ&hl=en")
 	#citation = scrape_paper(paper[1])
 	conn = sqlite3.connect(db_filename)
