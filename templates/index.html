@@ -97,10 +97,18 @@
                     </li>
                 </ul>
             </nav>
+
                                          <p class="post-description">I am a final year PhD student at University at Buffalo - SUNY in the Department of Computer Science and Engineering under the supervision of <a href="http://www.acsu.buffalo.edu/~kuiren/" target="_blank">Dr. Kui Ren</a>. I'm also a member of the <a href="http://ubisec.cse.buffalo.edu/" target="_blank">Ubiquitous Security and Privacy Research Laboratory
 (UbiSeC Lab)</a>
 <br />
-During my PhD study, my primary research topic is exploring the novel ideas and techniques to solve practical problems and security issues for <strong>mobile sensing</strong> and <strong>cyber physical systems</strong>. In the context of mobile sensing systems, I am interested in smartphone-enabled crowdsourcing approaches that can help build large-scale information infrastructures conveniently at a very low cost. I also study cyber-physical system security from the physical layer, leveraging various related characteristics to enable inherently secure and dependable wireless communications.</p></div>
+During my PhD study, my primary research topic is exploring the novel ideas and techniques to solve practical problems and security issues for <strong>mobile sensing</strong> and <strong>cyber physical systems</strong>. In the context of mobile sensing systems, I am interested in smartphone-enabled crowdsourcing approaches that can help build large-scale information infrastructures conveniently at a very low cost. I also study cyber-physical system security from the physical layer, leveraging various related characteristics to enable inherently secure and dependable wireless communications.
+<br />
+In my sparetime, I actively participate volunteer computing projects to power cutting-edge research in health, poverty and sustainability:
+               
+ {% for badge in badges %}
+                <img src="{{badge[1] }}" title="{{badge[0]}}">
+                {% endfor %}</p>
+</div>
 
 <!--                     <header class="post-header">
                         <img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="img/common/tilo-avatar.png">
@@ -122,9 +130,25 @@ During my PhD study, my primary research topic is exploring the novel ideas and 
             <div class="posts pure-u-24-24">
                 <h1 class="content-subhead">Research Interests</h1>
                 <div class="post-description_sameline"><p>My research interests include physical layer security, cyber-physical system security, wireless system and smartphone-enabled crowdsourcing system, with current focus on exploring and improving the cloud-assisted mobile sensing security.</p>
+
+
                 </div>
             </div>
 
+
+         <!--    <div class="posts pure-u-24-24">
+           <h1 class="content-subhead">Volunteer Computing</h1>
+
+
+
+                <div class="post-description_sameline"> <p>Volunteer computing is an arrangement in which people (volunteers) provide computing resources to projects, which use the resources to do distributed computing and/or storage.</p>        -->       
+
+                <!--
+                <section class="post post-description_sameline ">
+<iframe src="http://www.worldcommunitygrid.org/getDynamicImage.do?memberName=zzzlog&mnOn=false&stat=3&imageNum=1&rankOn=true&projectsOn=true&special=true" frameborder="0" name="di" scrolling="no" width="405px" height="190px"></iframe>
+                </section>
+                </div>
+            </div>-->       
 
             <div class="posts">
                 <h1 class="content-subhead">Recent publications and pre-prints</h1>
@@ -219,10 +243,13 @@ During my PhD study, my primary research topic is exploring the novel ideas and 
                 </section>
             </div>
 
+
+
             <div class="footer">
                 <div class="pure-menu pure-menu-horizontal">
 
                     <ul>
+                  
                         <li class="pure-menu-item"> <a href="https://github.com/quake0day/Dodrio" class="pure-menu-link">© 2016 Si Chen. All Rights Reserved | Design by Si Chen | Powered by Dodrio, Flask, Purecss.io</a></li>
                     </ul>
                 </div>
