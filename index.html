@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+
+    <title>Si Chen's Homepage</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='pure/pure-min.css') }}">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-8217718-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!--[if lte IE 8]>
+  
+<link rel="stylesheet" href="{{ url_for('static', filename='pure/grids-responsive-old-ie-min.css') }}">
+  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  
+<!--    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css"> -->
+  
+<link rel="stylesheet" href="{{ url_for('static', filename='pure/grids-responsive-min.css') }}">
+<!--<![endif]-->
+  
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/blog-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/layouts/blog.css') }}">
+    <!--<![endif]-->
+  
+
+
+    
+
+    
+
+</head>
+<body>
+<div class = "pure-g">
+    <div class="pure-u-xl-2-24 pure-u-sm-0-24 pure-u-md-1-24">
+	</div>
+    <div class="pure-u-xl-20-24 pure-u-sm-24-24 pure-u-md-22-24">
+         <div class="posts pure-u-24-24">
+            <h1>Si Chen</h1>
+            <h4>Department of Computer Science and Engineering</h4>
+<h4>University at Buffalo - SUNY </h4><h4>Office: 301 Davis Hall, Buffalo NY</h4>
+        </div>
+
+        <div>
+
+            <!-- A wrapper for all the blog posts -->
+            <div class="posts">
+                <h1 class="content-subhead">About Me</h1>
+
+                <!-- A single blog post -->
+                <section class="pure-g">
+
+                    <div class="pure-u-5-24">
+                        <img alt="My avatar" class="pure-img-responsive pica" src="{{ url_for('static', filename='images/si.jpg') }}">
+                    </div>
+ <div class="post-description_sameline pure-u-18-24">
+
+           <nav class="nav">
+                <ul class="nav-list">
+
+                 <!--    Résumé -->
+                     <li class="nav-item">
+                        <a class="pure-button pure-button-primary" href="mailto:schen23@buffalo.edu?Subject=Hello!"><i class="fa fa-envelope"></i> Mail</a>
+                    </li> 
+                    <li class="nav-item">
+                        <a class="pure-button pure-button-primary" href="https://github.com/quake0day/resume/raw/master/cv_research_Si-sm.pdf?raw=0"> <i class="fa fa-file-pdf-o"></i> CV</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button pure-button-primary"  href="https://scholar.google.com/citations?user=DDLTYpAAAAAJ&hl=en" target="_blank"><i class="fa fa-graduation-cap"></i> Google Scholar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button pure-button-primary" href="https://www.researchgate.net/profile/Si_Chen11" target="_blank"><i class="fa fa-university"></i> Research Gate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="pure-button pure-button-primary" href="http://www.quake0day.com"  target="_blank"><i class="fa fa-home"></i> Blog</a>
+                    </li>
+                    <li class="nav-item">
+                       <a class="pure-button pure-button-primary" href="https://github.com/quake0day"  target="_blank"><i class="fa fa-github-square"></i> GitHub</a>
+                    </li>
+                </ul>
+            </nav>
+
+                                         <p class="post-description">I am a final year PhD student at University at Buffalo - SUNY in the Department of Computer Science and Engineering under the supervision of <a href="http://www.acsu.buffalo.edu/~kuiren/" target="_blank">Dr. Kui Ren</a>. I'm also a member of the <a href="http://ubisec.cse.buffalo.edu/" target="_blank">Ubiquitous Security and Privacy Research Laboratory
+(UbiSeC Lab)</a>
+<br />
+During my PhD study, my primary research topic is exploring the novel ideas and techniques to solve practical problems and security issues for <strong>mobile sensing</strong> and <strong>cyber physical systems</strong>. In the context of mobile sensing systems, I am interested in smartphone-enabled crowdsourcing approaches that can help build large-scale information infrastructures conveniently at a very low cost. I also study cyber-physical system security from the physical layer, leveraging various related characteristics to enable inherently secure and dependable wireless communications.
+<br />
+In my sparetime, I actively participate volunteer computing projects to power cutting-edge research in health, poverty and sustainability:
+               
+ {% for badge in badges %}
+                <img src="{{badge[1] }}" title="{{badge[0]}}">
+                {% endfor %}</p>
+</div>
+
+<!--                     <header class="post-header">
+                        <img class="post-avatar" alt="Tilo Mitra&#x27;s avatar" height="48" width="48" src="img/common/tilo-avatar.png">
+
+                        <h2 class="post-title">Introducing Pure</h2>
+
+                        <p class="post-meta">
+                            By <a href="#" class="post-author">Tilo Mitra</a> under <a class="post-category post-category-design" href="#">CSS</a> <a class="post-category post-category-pure" href="#">Pure</a>
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        <p>
+                            Yesterday at CSSConf, we launched Pure – a new CSS library. Phew! Here are the <a href="https://speakerdeck.com/tilomitra/pure-bliss">slides from the presentation</a>. Although it looks pretty minimalist, we’ve been working on Pure for several months. After many iterations, we have released Pure as a set of small, responsive, CSS modules that you can use in every web project.
+                        </p>
+                    </div> -->
+                </section>
+            </div>
+            <div class="posts pure-u-24-24">
+                <h1 class="content-subhead">Research Interests</h1>
+                <div class="post-description_sameline"><p>My research interests include physical layer security, cyber-physical system security, wireless system and smartphone-enabled crowdsourcing system, with current focus on exploring and improving the cloud-assisted mobile sensing security.</p>
+
+
+                </div>
+            </div>
+
+
+         <!--    <div class="posts pure-u-24-24">
+           <h1 class="content-subhead">Volunteer Computing</h1>
+
+
+
+                <div class="post-description_sameline"> <p>Volunteer computing is an arrangement in which people (volunteers) provide computing resources to projects, which use the resources to do distributed computing and/or storage.</p>        -->       
+
+                <!--
+                <section class="post post-description_sameline ">
+<iframe src="http://www.worldcommunitygrid.org/getDynamicImage.do?memberName=zzzlog&mnOn=false&stat=3&imageNum=1&rankOn=true&projectsOn=true&special=true" frameborder="0" name="di" scrolling="no" width="405px" height="190px"></iframe>
+                </section>
+                </div>
+            </div>-->       
+
+            <div class="posts">
+                <h1 class="content-subhead">Recent publications and pre-prints</h1>
+
+                <section class="post post-description">
+                        <ul> 
+                            {% for entrie in entries %}
+                            <div class="pure-u-17-24 publication">
+                                {% if entrie['type'] == 1 %}
+                                <a class="post-category post-category-design">C</a> 
+                                {% endif %}
+                                {% if entrie['type'] == 2 %}
+                                <a class="post-category post-category-pure">J</a> 
+                                {% endif %}
+                                {% if entrie['type'] == 3 %}
+                                <a class="post-category post-category-js">P</a> 
+                                {% endif %}
+                                {% if entrie['type'] == 4 %}
+                                <a class="post-category post-category-yui">B</a> 
+                                {% endif %}
+                                <tit><a href="{{ entrie['urlpaper'] }}" target="_blank">{{ entrie['title'] }}</a></tit> <br /> <author>{{ entrie['author'] }}.</author> <br /><conf>{{ entrie['confname'] }}</conf> 
+
+                                {% if entrie['type'] == 1 %}                                
+                                , {{ entrie['place'] }}. 
+                                {% else %} 
+                                .
+                                {% endif %}
+                                {% if entrie['urlpaper'] %}
+                                   <br /> <a href="{{ entrie['urlpaper'] }}" target="_blank">[paper]</a>
+                                {% endif %}
+                                {% if entrie['urlslides'] %}
+                                    | <a href="{{ entrie['urlslides'] }}" target="_blank">[slides]</a>
+                                {% endif %}
+                            </div>
+                            <div class="pure-u-2-24">
+                                <a class="post-category" href="{{ entrie['urlcite'] }}">{{ entrie['cite'] }}</a> 
+                            </div>
+                            <div class="pure-u-2-24">
+                                <strong>{{ entrie['year'] }}</strong>
+                            </div>
+                            {% endfor %}
+                        </ul>
+                </section>
+            </div>
+
+
+            <div class="posts pure-u-24-24">
+                <h1 class="content-subhead">Honors and Awards</h1>
+
+                <section class="post post-description_sameline ">
+                        <ul> 
+                            <li> <a href="http://www.sigmobile.org/mobicom/2013/app_finalists.html" target="_blank">The 19th Annual International Conference on Mobile Computing and Networking (ACM Mobicom’13) App Competition Finalists</a> (<a href="https://vimeo.com/77708077" target="_blank">Video</a>), 2013</li>
+                            <li> Student Travel Grant Awards, IEEE ICDCS, 2015</li>
+                            <li> Top 100 Excellent Graduate Theses in China Agricultural University, 2010</li>
+                            <li> Excellent Graduate Award in China Agricultural University, 2010</li>
+                            <li> National University Student Innovation Program Award, 2009-2010</li>
+                            <li> Undergraduate Research Program Award, 2007-2008</li>
+                            <li> Third Prize of International Interdisciplinary Contest in Modeling (ICM), 2009</li>
+                            <li> Third Prize of Scholarship for Excellent Academic Performance, 2007, 2008, 2009</li>
+                            <li> Awarded “The best debater” title in debate competitions, 2006, 2007</li>
+                        </ul>
+                </section>
+            </div>
+
+            <div class="posts pure-u-24-24">
+                <h1 class="content-subhead">Professional Services</h1>
+
+                <section class="post post-description_sameline ">
+                        <ul> 
+                        <li><strong>Technical Program Committee (TPC)</strong> for <a href="http://events.afcea.org/milcom16/Public/enter.aspx" target="_blank">Milcom 2016</a></li>
+                            <li> <strong>Conference Reviewer</strong> for AsiaCCS'16, ICCCN’16, ACM CCS’15, ICDCS’15, ESORICS’15, AsiaCCS’15, Cloud’15, ICCCN’15, DBSec’15, CoudCom’15, ACM CHI’15, CloudNet’15, ISC’15, Securecomm’15, IEEE MSN’15, IPCCC’15, INFOCOM’14, ACM CCS’14, ICDCS’14, ESORICS’14, ICNP’14, AisaCCS’14, MobiHoc’14, CNS’14, CloudNet’14,DBSec’14, SecureComm’14.
+</li>
+                                                        <li> <strong>Journal Reviewer</strong> for IEEE Trans. on Parallel and Distributed Systems, IEEE Trans. on Services Computing, IEEE Trans. on Smart Grid, IEEE Trans. on Vehicular Technology, IEEE Trans. on Wireless Communications, IEEE Security & Privacy magazine, IEEE Network Magazine, Journal of Computer Security, Journal of Mobile Communication, Com- putation and Information, Journal of Parallel and Distributed Computing.</li>
+                                                        <li><strong>Webchair</strong> for <a href="http://www.cse.buffalo.edu/ccw13/" target="_blank">the 27th IEEE Annual Computer Communications Workshop (CCW’13)</a>.</li>
+                        </ul>
+                </section>
+            </div>
+
+            <div class="posts pure-u-24-24">
+                <h1 class="content-subhead">Teaching Experience</h1>
+
+                <section class="post post-description_sameline ">
+                        <ul> <strong>Teaching Assistant:</strong> 
+                            <li>  CSE 241 Digital Systems (<a href="http://www.cse.buffalo.edu/~bina/cse241/spring2016/CourseDescription/description.html" target="_blank">S'16</a>)</li>
+                            <li>  CSE 664 Applied Cryptography and Computer Security (<a href="http://www.acsu.buffalo.edu/~kuiren/courses/CSE664_Syllabus.pdf" target="_blank">S'14</a>)</li>
+                            <strong>Guest Lecturer:</strong> 
+                            <li>  CSE 706 Seminar: Selected Topics in Privacy and Security (F'15)</li>
+                            <li>  CSE 706 Seminar: Sensing, Crowdsourcing with Smartphones and Wearable Devices (<a href="http://www.cse.buffalo.edu/shared/course_instance.php?semester=201409&classnumber=12388" target="_blank">F'14</a>) </li>
+                            <li>  CSE 706 Seminar: Security and Privacy in Emerging Applications (F'13)</li>
+                            <li>  CSE 706 Seminar: Advanced Topics on Privacy Enhancing Technologies (F'12)</li>
+
+                        </ul>
+                </section>
+            </div>
+
+
+
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal">
+
+                    <ul>
+                  
+                        <li class="pure-menu-item"> <a href="https://github.com/quake0day/Dodrio" class="pure-menu-link">© 2016 Si Chen. All Rights Reserved | Design by Si Chen | Powered by Dodrio, Flask, Purecss.io</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="pure-u-xl-2-24 pure-u-sm-0-24 pure-u-md-1-24"></div>
+</div>
+
+
+</body>
+</html>

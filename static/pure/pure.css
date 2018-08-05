@@ -1473,3 +1473,15 @@ striping:
 .pure-table-horizontal tbody > tr:last-child > td {
     border-bottom-width: 0;
 }
+.logo{
+	min-width: 200px;
+    min-height: 100px;
+    padding: 5px;
+    display: inline-block;
+	-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%) contrast(100%) blur(1px);;
+}
+.logo:hover{
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(0%) contrast(200%) blur(0px);;
+}

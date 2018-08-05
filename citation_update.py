@@ -13,6 +13,7 @@ def update_citation(id, citation, conn):
 if __name__ == "__main__":
 	db_filename = '/var/www/Dodrio/db/information.db'
 	paper_data = scrape_author("https://scholar.google.com/citations?user=DDLTYpAAAAAJ&hl=en")
+	print paper_data
 	#citation = scrape_paper(paper[1])
 	conn = sqlite3.connect(db_filename)
 	cursor = conn.cursor()
@@ -23,14 +24,15 @@ if __name__ == "__main__":
 	for row in cursor.fetchall():
 		id_, title, cite = row
 		data[title] = [cite, id_]
-	#print data
+	print data
 
 
 	for paper in paper_data:
 		for database_item in data:
 			if difflib.SequenceMatcher(None, database_item, paper[0]).ratio() > 0.8:
 				citation = scrape_paper(paper[1])
-				if int(data[database_item][0]) != int(citation):
+				print citation
+				if int(data[database_item][0]) < int(citation):
 					update_citation(data[database_item][1], citation, conn)
 				else:
 					#print paper[0], data[database_item][0], citation

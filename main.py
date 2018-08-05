@@ -2,9 +2,12 @@ import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, \
      abort, render_template, flash
 from wcg import init, getBadges, getRanks
+import os
 
 # configuration
-DATABASE = './db/information.db'
+PROJECT_ROOT = os.path.dirname(os.path.realpath(__file__))
+DATABASE = os.path.join(PROJECT_ROOT, 'db', 'information.db')
+#DATABASE = './db/information.db'
 DEBUG = False
 
 
@@ -34,9 +37,13 @@ def index():
     res = getBadges(soup)
     return render_template('index.html', entries=entries, badges = res)
 
+@app.errorhandler(Exception)
+def exception_handler(error):
+    return "!!!!OHNO!!!" + repr(error)
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', DEBUG=True)

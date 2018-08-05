@@ -23,6 +23,7 @@ nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
 img{max-width:100%;}
 /*end reset*
  */
+
 body{
 	background: url(../images/bg1.png);
 	font-family: "Century Gothic",Arial, Helvetica, sans-serif;
@@ -57,6 +58,7 @@ body{
 	padding: 15px 20px;
 	border-radius: 1em;
 }
+
 .content a:hover{
 	color:#e54040;
 }
@@ -65,6 +67,7 @@ body{
 	-webkit-box-shadow: 0 8px 6px -6px rgb(97, 97, 97);
 	-moz-box-shadow: 0 8px 6px -6px  rgb(97, 97, 97);
 	box-shadow: 0 8px 6px -6px  rgb(97, 97, 97);
+
 }
 .logo h1{
 	font-size:2em;

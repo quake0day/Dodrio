@@ -11,7 +11,7 @@ def init():
 
 
 def getBadges(soup):
-    IMG_URL_BASE = "http://signature.statseb.fr/"
+    IMG_URL_BASE = "https://signature.statseb.fr/"
     imgs = soup.findAll("img")
     res = []
     for img in imgs:
