@@ -3,6 +3,7 @@ import sqlite3
 import difflib
 from scholar import ClusterScholarQuery, ScholarQuerier, ScholarSettings, txt, SearchScholarQuery
 from time import sleep
+import random
 def update_citation(id, citation, conn):
     cur = conn.cursor()
     query = "update entries set cite="+str(citation)+" where id="+str(id)
@@ -37,6 +38,7 @@ def getCitationByTitle(paper_title):
     query.set_author("Si Chen")
     query.set_phrase(paper_title)
     query.set_num_page_results(1)
+    print query
     querier.send_query(query)
     citations = 0
     txt(querier, True)
@@ -73,9 +75,8 @@ def getCitationURLByTitle(paper_title):
     return url_citations
 
 if __name__ == "__main__":
-    #db_filename = '/var/www/Dodrio/db/information.db'
-    db_filename = './db/information.db'
-    #citation = scrape_paper(paper[1])
+    db_filename = '/var/www/Dodrio/db/information.db'
+    #db_filename = './db/information.db'
     conn = sqlite3.connect(db_filename)
     cursor = conn.cursor()
     cursor.execute("""
@@ -86,27 +87,35 @@ if __name__ == "__main__":
     	id_, title, cite, cluster = row
     	data[title] = [cite, id_, cluster]
     #txt(querier, True)
+    random_id = random.randint(0, len(data))
+    print "TRY:{}".format(random_id)
+    i = 0
     for database_item in data:
-        cluster_ID = data[database_item][2]
-        citation = 0
-        if cluster_ID == None:
-            # query cluster ID
-            cluster_ID = getClusterIDByTitle(database_item)
-            sleep(1)
-            if cluster_ID != None:
-                update_clusterID(data[database_item][1], cluster_ID, conn)
-            sleep(1)
-            citation = getCitationByTitle(database_item)
-        else:
-            citation = getCitationByID(int(cluster_ID))
-            sleep(1)
-        old_citation = data[database_item][0] 
-        if old_citation < citation:
-            print "Citiation Change! From {} to {}".format(old_citation, citation)
-            update_citation(data[database_item][1], citation, conn)
-        else:
+        if i != random_id:
             pass
-            
+        else:
+            print database_item
+            cluster_ID = data[database_item][2]
+            citation = 0
+            if cluster_ID == None:
+                # query cluster ID
+                cluster_ID = getClusterIDByTitle(database_item)
+                sleep(1)
+                if cluster_ID != None:
+                    update_clusterID(data[database_item][1], cluster_ID, conn)
+                sleep(1)
+                citation = getCitationByTitle(database_item)
+            else:
+                citation = getCitationByID(int(cluster_ID))
+                sleep(1)
+            old_citation = data[database_item][0] 
+            if old_citation < citation:
+                print "Citiation Change! From {} to {}".format(old_citation, citation)
+                update_citation(data[database_item][1], citation, conn)
+            else:
+                pass
+        i += 1
+
     #     citation = getCitationByTitle(paper[1])
     #     print citation
     #     if int(data[database_item][0]) < int(citation):
