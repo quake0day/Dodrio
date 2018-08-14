@@ -1,41 +1,118 @@
-from scrape_publication import scrape_paper
-from scrape_author import scrape_author
 import os
 import sqlite3
 import difflib
-
+from scholar import ClusterScholarQuery, ScholarQuerier, ScholarSettings, txt, SearchScholarQuery
+from time import sleep
 def update_citation(id, citation, conn):
-	cur = conn.cursor()
-	query = "update entries set cite="+str(citation)+" where id="+str(id)
-	cur.execute(query)
-	conn.commit()
+    cur = conn.cursor()
+    query = "update entries set cite="+str(citation)+" where id="+str(id)
+    cur.execute(query)
+    conn.commit()
+
+def update_clusterID(id, cluster_ID, conn):
+    cur = conn.cursor()
+    query = "update entries set cluster="+cluster_ID+" where id="+str(id)
+    cur.execute(query)
+    conn.commit()
+
+def getCitationByID(cluster_ID):
+    querier = ScholarQuerier()
+    query = ClusterScholarQuery(cluster=cluster_ID)
+    query.set_num_page_results(1)
+    querier.send_query(query)
+    citations = querier.articles[0].attrs['num_citations'][0]
+    return citations
+
+def getCitationURLByID(cluster_ID):
+    querier = ScholarQuerier()
+    query = ClusterScholarQuery(cluster=cluster_ID)
+    query.set_num_page_results(1)
+    querier.send_query(query)
+    url_citations = querier.articles[0].attrs['url_citations'][0]
+    return url_citations
+
+def getCitationByTitle(paper_title):
+    querier = ScholarQuerier()
+    query = SearchScholarQuery()
+    query.set_author("Si Chen")
+    query.set_phrase(paper_title)
+    query.set_num_page_results(1)
+    querier.send_query(query)
+    citations = 0
+    txt(querier, True)
+    try:
+        citations = querier.articles[0].attrs['num_citations'][0]
+    except:
+        pass
+    #url_citations = querier.articles[0].attrs['url_citations'][0]
+    return citations
+
+def getClusterIDByTitle(paper_title):
+    querier = ScholarQuerier()
+    query = SearchScholarQuery()
+    query.set_author("Si Chen")
+    query.set_phrase(paper_title)
+    query.set_num_page_results(1)
+    querier.send_query(query)
+    clusterID = None
+    try:
+        clusterID = querier.articles[0].attrs['cluster_id']
+    except:
+        pass
+    #url_citations = querier.articles[0].attrs['url_citations'][0]
+    return clusterID
+
+def getCitationURLByTitle(paper_title):
+    querier = ScholarQuerier()
+    query = SearchScholarQuery()
+    query.set_author("Si Chen")
+    query.set_phrase(paper_title)
+    query.set_num_page_results(1)
+    querier.send_query(query)
+    url_citations = querier.articles[0].attrs['url_citations'][0]
+    return url_citations
 
 if __name__ == "__main__":
-	db_filename = '/var/www/Dodrio/db/information.db'
-	paper_data = scrape_author("https://scholar.google.com/citations?user=DDLTYpAAAAAJ&hl=en")
-	print paper_data
-	#citation = scrape_paper(paper[1])
-	conn = sqlite3.connect(db_filename)
-	cursor = conn.cursor()
-	cursor.execute("""
-		select id, title, cite from entries
-		""")
-	data = {}
-	for row in cursor.fetchall():
-		id_, title, cite = row
-		data[title] = [cite, id_]
-	print data
-
-
-	for paper in paper_data:
-		for database_item in data:
-			if difflib.SequenceMatcher(None, database_item, paper[0]).ratio() > 0.8:
-				citation = scrape_paper(paper[1])
-				print citation
-				if int(data[database_item][0]) < int(citation):
-					update_citation(data[database_item][1], citation, conn)
-				else:
-					#print paper[0], data[database_item][0], citation
-					pass
+    #db_filename = '/var/www/Dodrio/db/information.db'
+    db_filename = './db/information.db'
+    #citation = scrape_paper(paper[1])
+    conn = sqlite3.connect(db_filename)
+    cursor = conn.cursor()
+    cursor.execute("""
+    	select id, title, cite, cluster from entries
+    	""")
+    data = {}
+    for row in cursor.fetchall():
+    	id_, title, cite, cluster = row
+    	data[title] = [cite, id_, cluster]
+    #txt(querier, True)
+    for database_item in data:
+        cluster_ID = data[database_item][2]
+        citation = 0
+        if cluster_ID == None:
+            # query cluster ID
+            cluster_ID = getClusterIDByTitle(database_item)
+            sleep(1)
+            if cluster_ID != None:
+                update_clusterID(data[database_item][1], cluster_ID, conn)
+            sleep(1)
+            citation = getCitationByTitle(database_item)
+        else:
+            citation = getCitationByID(int(cluster_ID))
+            sleep(1)
+        old_citation = data[database_item][0] 
+        if old_citation < citation:
+            print "Citiation Change! From {} to {}".format(old_citation, citation)
+            update_citation(data[database_item][1], citation, conn)
+        else:
+            pass
+            
+    #     citation = getCitationByTitle(paper[1])
+    #     print citation
+    #     if int(data[database_item][0]) < int(citation):
+    #         update_citation(data[database_item][1], citation, conn)
+    #     else:
+    #         #print paper[0], data[database_item][0], citation
+    #         pass
 
 
