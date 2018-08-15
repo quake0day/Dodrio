@@ -118,12 +118,11 @@ if __name__ == "__main__":
     	id_, title, cite, cluster = row
     	data[title] = [cite, id_, cluster]
     #txt(querier, True)
-    random_id = random.randint(0, len(data))
-    print "TRY:{}".format(random_id)
+    random_ids = random.sample(range(0, len(data)), 8)
+    print "TRY:{}".format(random_ids)
     i = 0
-    random_id = 9
     for database_item in data:
-        if i != random_id:
+        if i not in random_ids:
             pass
         else:
             print database_item
@@ -134,7 +133,6 @@ if __name__ == "__main__":
                 query = setCitationByTitle(database_item)
                 citation, url_citation, cluster_ID = getResult(query)
                 print citation, url_citation, str(cluster_ID)
-                sleeping()                    
                 if cluster_ID != "" and cluster_ID != None:
                     update_clusterID(data[database_item][1], cluster_ID, conn)
                 else:
@@ -143,7 +141,6 @@ if __name__ == "__main__":
                 query = setCitationByID(int(cluster_ID))
                 citation, url_citation, cluster_ID = getResult(query)
                 print citation, url_citation, cluster_ID
-                sleeping()
             if url_citation != None:
                 update_url_citation(data[database_item][1], url_citation, conn)
             old_citation = data[database_item][0] 
