@@ -106,8 +106,8 @@ def setCitationByTitle(paper_title):
     return query
 
 if __name__ == "__main__":
-    db_filename = '/var/www/Dodrio/db/information.db'
-    #db_filename = './db/information.db'
+    #db_filename = '/var/www/Dodrio/db/information.db'
+    db_filename = './db/information.db'
     conn = sqlite3.connect(db_filename)
     cursor = conn.cursor()
     cursor.execute("""

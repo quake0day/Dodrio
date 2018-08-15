@@ -245,11 +245,11 @@ class ScholarConf(object):
 
     #USER_AGENT = 'Mozilla/5.0 (X11; U; FreeBSD i386; en-US; rv:1.9.2.9) Gecko/20100913 Firefox/3.6.9'
     # Let's update at this point (3/14):
-    USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101 Firefox/60.0"
 
     # If set, we will use this file to read/save cookies to enable
     # cookie use across sessions.
-    COOKIE_JAR_FILE = "/var/www/Dodrio/cookies.txt"
+    COOKIE_JAR_FILE = "./cookies.txt"
 
 class ScholarUtils(object):
     """A wrapper for various utensils that come in handy."""
