@@ -141,7 +141,7 @@ if __name__ == "__main__":
                 query = setCitationByID(int(cluster_ID))
                 citation, url_citation, cluster_ID = getResult(query)
                 print citation, url_citation, cluster_ID
-            if url_citation != None:
+            if url_citation != None and url_citation!= "":
                 update_url_citation(data[database_item][1], url_citation, conn)
             old_citation = data[database_item][0] 
             if old_citation < citation:
