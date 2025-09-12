@@ -1,0 +1,45 @@
+services:
+  web:
+    build: .
+    container_name: flask-academic-website
+    ports:
+      - "5001:5000"
+    volumes:
+      # Mount database directory for persistence
+      - ./db:/app/db
+      # Mount static files for easy updates
+      - ./static:/app/static
+      # Mount templates for easy updates
+      - ./templates:/app/templates
+      # Optional: Mount SSL certificates if needed
+      - ./4fa581949f17aaa.crt:/app/4fa581949f17aaa.crt:ro
+      - ./darlingtree.key:/app/darlingtree.key:ro
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=False
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Add nginx for production deployment
+  nginx:
+    image: nginx:alpine
+    container_name: flask-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./static:/usr/share/nginx/html/static:ro
+      - ./4fa581949f17aaa.crt:/etc/nginx/ssl/cert.crt:ro
+      - ./darlingtree.key:/etc/nginx/ssl/cert.key:ro
+    depends_on:
+      - web
+    restart: unless-stopped
+    profiles:
+      - production

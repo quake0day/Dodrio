@@ -1,0 +1,232 @@
+\documentclass[letter]{article}
+\usepackage{url}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{marvosym} % For symbols like \Letter and \Telefon
+\usepackage{enumerate}
+\usepackage{pifont}
+\usepackage[margin=1.15in]{geometry}
+\usepackage{ifthen} % For conditional commands
+
+\renewcommand\labelitemiii{-}
+\pagestyle{empty}
+
+\newenvironment{tightitem}
+{\begin{itemize}
+\setlength{\itemsep}{1pt}
+\setlength{\parskip}{0pt}
+\setlength{\parsep}{0pt}}
+{\end{itemize}}
+
+\newcommand{\heading}[1]{\item \large \textsc{#1} \normalsize}
+
+\newenvironment{experience}[4]{
+\item \textbf{#1.} \hfill #3 - #4 \\
+\emph{#2}
+}{}
+
+\newcommand{\publication}[4]{\item #1. #2. \emph{#3.} #4}
+
+\newcommand{\cvdoublecolumn}[2]{%
+  \cvitem[0.75em]{}{%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#1\end{minipage}%
+    \hfill%
+    \begin{minipage}[t]{\listdoubleitemmaincolumnwidth}#2\end{minipage}%
+    }%
+}
+
+\newcommand{\cvreference}[7]{%
+    \textbf{#1}\newline% Name
+    \ifthenelse{\equal{#2}{}}{}{\addresssymbol~#2\newline}%
+    \ifthenelse{\equal{#3}{}}{}{#3\newline}%
+    \ifthenelse{\equal{#4}{}}{}{#4\newline}%
+    \ifthenelse{\equal{#5}{}}{}{#5\newline}%
+    \ifthenelse{\equal{#6}{}}{}{\emailsymbol~\texttt{#6}\newline}%
+    \ifthenelse{\equal{#7}{}}{}{\phonesymbol~#7}}
+
+% Define symbols used in \cvreference
+\newcommand{\addresssymbol}{\House}
+\newcommand{\emailsymbol}{\Letter}
+\newcommand{\phonesymbol}{\Telefon}
+
+\begin{document}
+
+\Huge \textbf{Si Chen} \hfill \small
+\begin{tabular}{rl}
+Position & Associate Professor \& Assistant Chairperson\\
+Email   & \href{mailto:schen@wcupa.edu}{schen@wcupa.edu} \\
+Web     & \url{http://www.cs.wcupa.edu/schen} \\
+Address & UNA 131, 25 University Ave, West Chester, PA\\
+Phone  & (610)-436-6998\\
+\end{tabular}
+
+\normalsize
+
+\begin{description}
+
+\heading{Education}
+
+\begin{itemize}
+\item \textbf{University at Buffalo - SUNY, Buffalo, NY, USA} \\
+Ph.D. in Computer Science and Engineering, May 2016\\
+Thesis: ``Cloud-assisted Mobile Sensing System" \\
+Advised by Professor Kui Ren
+
+\item \textbf{University at Buffalo - SUNY, Buffalo, NY, USA} \\
+M.S. in Electrical Engineering, May 2012\\
+Thesis: ``Groundwave Modelling and Online Simulation System for Advanced HF Radio Networking" \\
+Advised by Professor Tommaso Melodia
+
+\item \textbf{China Agricultural University, Beijing, China} \\
+B.S. in Measuring \& Control Technology and Instrumentations (School of Engineering), June 2010\\
+\end{itemize}
+
+\heading{Selected Publications}
+
+\textbf{Conference Papers}
+
+\begin{enumerate}[{C-}1.]
+
+\publication{Jongwook Kim, \textbf{Si Chen}, Liu Cui} {Improving Students’ Programming Skills by Implementing a University-Wide Programming Contest} {\textbf{38th Annual Conference of The Pennsylvania Association of Computer and Information Science Educators}, East Stroudsburg, PA, 2023}\\
+
+\publication{\textbf{Si Chen}, Liu Cui} {Extended Berkeley Packet Filter (eBPF): The New Swiss Knife for Cybersecurity Education}  {\textbf{37th Annual Conference of The Pennsylvania Association of Computer and Information Science Educators}, Clarion University (Virtual), 2022}
+\textbf{Best Paper Award}\\
+
+\publication{Tongliang Deng, Hanpei Wu, Yanliang Zou, \textbf{Si Chen}, Tao Xie, Shu Yin} {ADA: An Application-Conscious Data Acquirer for Visual Molecular Dynamics}  {\textbf{The 50th International Conference on Parallel Processing (ICPP-2021)}, Chicago, IL, 2021}\\
+
+\publication{Jian Zhang, Tao Xie, Yuzhuo Jing, Yanjie Song, Guanzhou Hu, \textbf{Si Chen}, Shu Yin} {BORA: A Bag Optimizer for Robotic Analysis}  {\textbf{SC20: The International Conference for High Performance Computing, Networking, Storage, and Analysis (SC'20)}, Atlanta, GA, November 9, 2020} \\ 
+\textbf{Acceptance ratio} $=$ 22.3\% \\
+
+\publication{Yanliang Zou, Chen Chen, Tongliang Deng, Jian Zhang, \textbf{Si Chen}, Xiaomin Zhu, Shu Yin} {SHC: A Method for Stackable Parallel File Systems in Userspace}  {\textbf{21st IEEE International Conference on High Performance Computing and Communications (HPCC/SmartCity/DSS 2019)}, Zhangjiajie, China, August 10, 2019} \\ 
+
+\publication{Linh Ngo, Liu Cui, \textbf{Si Chen}} {Computing Infrastructures to Support Cybersecurity Education}  {\textbf{The 34th Annual Spring Conference of the Pennsylvania Computer and Information Science Educators (PACISE'19)}, Millersville, PA, April 12, 2019} \\
+
+\publication{Jiacheng Shang, \textbf{Si Chen}, Jie Wu} {SRVoice: A Robust Sparse Representation-based Liveness Detection System}  {\textbf{IEEE 24th International Conference on Parallel and Distributed Systems (IEEE ICPADS 2018)}, Singapore, December 11, 2018} \\
+
+\publication{Jiacheng Shang, \textbf{Si Chen}, Jie Wu} {Defending Against Voice Spoofing: A Robust Software-based Liveness Detection System}  {\textbf{The 15th International Conference on Mobile Ad-hoc and Sensor Systems (IEEE MASS 2018)}, Chengdu, China, October 9-12, 2018} \\
+\textbf{Acceptance ratio} $=$ 20.5\% \\
+
+\publication{Shu Yin, Bing Jiao, Xiaomin Zhu, Xiaojun Ruan, \textbf{Si Chen}, Zhuo Tang} {DuoFS: A Hybrid Storage System Balancing Energy-Efficiency, Reliability, and Performance}  {\textbf{26th Euromicro International Conference on Parallel, Distributed and Network-based Processing (PDP 2018)}, Cambridge, UK, March 21-23, 2018} \\
+\textbf{Acceptance ratio} $=$ 29.3\% \\
+
+\publication{\textbf{Si Chen}, Kui Ren, Sixu Piao, Cong Wang, Qian Wang, Jian Weng, Lu Su, Aziz Mohaisen} {You Can Hear But You Cannot Steal: Defending Against Voice Impersonation Attacks on Smartphones}  {\textbf{The 37th IEEE International Conference on Distributed Computing Systems (ICDCS'17)}, Atlanta, GA, June 5-8, 2017} \\
+\textbf{Acceptance ratio} $=$ 16.8\% \\
+\textbf{Best Student Paper Award} \\
+\textbf{Media coverage: }Scientific American, Phys.org, CBS, Financial Express, Tech Radar, NDTV, Science Daily, Gizmodo, etc.\\
+
+\publication{\textbf{Si Chen}, Muyuan Li, Kui Ren, Xinwen Fu, Chunming Qiao} {Rise of the Indoor Crowd: Reconstruction of Building Interior View via Mobile Crowdsourcing}  {\textbf{The 13th ACM Conference on Embedded Networked Sensor Systems (SenSys'15)}, Seoul, South Korea, November 1-4, 2015} \\
+
+\publication{\textbf{Si Chen}, Muyuan Li, Kui Ren, Chunming Qiao} {CrowdMap: Accurate Reconstruction of Indoor Floor Plan from Crowdsourced Sensor-Rich Videos}  {\textbf{The 35th IEEE International Conference on Distributed Computing Systems (ICDCS'15)}, Columbus, Ohio, June 29 - July 2, 2015, pp. 1-10} \\
+
+\publication{Muyuan Li, Haojin Zhu, Zhaoyu Gao, \textbf{Si Chen}, Le Yu, Shangqian Hu, Kui Ren} {All Your Location Are Belong to Us: Breaking Mobile Social Networks for Automated User Location Tracking}  {\textbf{The 15th ACM International Symposium on Mobile Ad Hoc Networking and Computing (MobiHoc'14)}, Philadelphia, PA, August 11-14, 2014, pp. 43-52} \\
+\textbf{Acceptance ratio} $=$ 18.9\% \\
+\textbf{Citations $>$ 100} \\
+
+\publication{Eric Koski, \textbf{Si Chen}, Scott Pudlewski, Tommaso Melodia} {Network Simulation for Advanced HF Communications Engineering}  {\textbf{The 12th International Conference on Ionospheric Radio Systems and Techniques (IRST'12)}, York, UK, May 15-17, 2012, pp. 45}\\
+
+\publication{\textbf{Si Chen}, Lina Ling, Yuan Rongchang, Longqing Sun} {Classification Model of Seed Cotton Grade Based on Least Square Support Vector Machine Regression Method}  {\textbf{The 6th IEEE International Conference on Information and Automation for Sustainability (ICIAfS'12)}, Beijing, China, 2012, pp. 198--202} \\
+
+\publication{Rongchang Yuan, Zhengjiang Li, \textbf{Si Chen}} {Movement and Deformation of Virtual Object Based on Argument Passing Method}  {\textbf{The IEEE International Conference on Virtual Environments, Human-Computer Interfaces and Measurement Systems (VECIMS'12)}, Tianjin, China, 2012, pp. 103-106 } \\
+
+\publication{Rongchang Yuan, \textbf{Si Chen}, Zhengjiang Li, Shengrong Lu, Li Wang, Haigan Yuan} {Simulation and Models on Control of Pests with Ozone in Greenhouses Plant}  {\textbf{The IASTED International Conference on Modeling, Simulation, and Identification (MSI'11)}, Pittsburgh, PA, November 7-9, 2011} \\
+
+\publication{Rongchang Yuan, Haigan Yuan, \textbf{Si Chen}, Longqing Sun, Feng Qin, Han Zhang, Yukun Zhu, Daokun Ma} {Research on the k-Coverage Local Wireless Network and Its Communication Coordination Mechanism Design}  {\textbf{The 5th International Conference on Computer and Computing Technologies in Agriculture (CCTA '11)}, Beijing, China, October 29-31, 2011} \\
+
+\end{enumerate}
+
+\textbf{Journal and Magazine Articles}
+
+\begin{enumerate}[{J-}1.]
+
+\publication{Yanliang Zou, Chen Chen, Tongliang Deng, Jian Zhang, Xiaomin Zhu, \textbf{Si Chen}, Shu Yin} {User-Level Parallel File System: Case Studies and Performance}  {\textbf{Concurrency and Computation: Practice and Experience}, 2023}\\
+
+\publication{Guangquan Xu, Chen Qi, Wenyu Dong, Lixiao Gong, Shaoying Liu, \textbf{Si Chen}, Jian Liu, Xi Zheng} {A Privacy-Preserving Medical Data Sharing Scheme Based on Blockchain}  {\textbf{IEEE Journal of Biomedical and Health Informatics}, 2022}\\
+
+\publication{Jiacheng Shang, \textbf{Si Chen}, Shu Yin, Jie Wu} {ARSpy: Breaking Location-Based Multi-player Augmented Reality Application for User Location Tracking}
+{\textbf{IEEE Transactions on Mobile Computing (TMC)}, 2022}\\
+
+\publication{Yuyang Zhao, Guangquan Xu, Litao Jiao, Meiqi Feng, Zhong Ji, Emmanouil Panaousis, \textbf{Si Chen}, Xi Zheng} {TTSVD: An Efficient Sparse Decision Making Model with Two-way Trust Recommendation in the AI Enabled IoT Systems}
+{\textbf{IEEE Internet of Things Journal (IoT)}, 2021}\\
+
+\publication{Xiao Zhang, Jiqiang Liu, \textbf{Si Chen}, Yongjun Kong, Kui Ren} {PriWhisper+: An Enhanced Acoustic Short-Range Communication System for Smartphones}
+{\textbf{IEEE Internet of Things Journal (IoT)}, 2018}\\
+
+\publication{\textbf{Si Chen}, Qin Zhan, Guoliang Xing, Kui Ren} {Securing Acoustics-Based Short-Range Communication Systems: An Overview}
+{\textbf{Journal of Communications and Information Network}, 2016}\\
+
+\publication{Bingsheng Zhang, Qin Zhan, \textbf{Si Chen}, Muyuan Li, Kui Ren, Cong Wang, Di Ma} {PriWhisper: Enabling Keyless Secure Acoustic Communication for Smartphones}
+{\textbf{IEEE Internet of Things Journal (IoT)}, 2014}\\
+
+\end{enumerate}
+
+\heading{Academic Activities}
+
+\begin{itemize}
+\item \textbf{Author (Contributor)} of book "Advances of Artificial Intelligence/Machine Learning in Future Network Security and Applications" (Section: Securing Augmented Reality Applications using Artificial Intelligence and Machine Learning Techniques), 2024
+\item \textbf{"Wireless Network Security" Session Chair} for MILCOM 2023, 2024
+\item \textbf{Technical Program Committee (TPC)} for MILCOM 2016 - 2024
+\item \textbf{Advisory Board Member} for the Cybersecurity program of the Computer Technologies Department at the Community College of Philadelphia, 2023
+\item \textbf{Research Fellow} at INTI International University, Malaysia, 2023
+\item \textbf{Program Committee (PC)} for the International Conference on Computational Intelligence and Security (CIS 2021)
+\item \textbf{Program Committee (PC)} for the 2020 International Conference on Frontiers in Cyber Security (FCS2020)
+\item \textbf{Program Committee (PC)} for the 1st IEEE International Workshop on Advances in Fog/Edge Computing (AFEC 2020)
+\item \textbf{Technical Program Committee (TPC)} for Workshop on Edge, Fog, and Cloud Computing for the Internet of Things in conjunction with MobiQuitous 2019
+\item \textbf{Technical Program Committee (TPC)} for IEEE CPSCom 2019
+\item \textbf{Technical Program Committee (TPC)} for ACM/IEEE IoTDI 2019 (Poster and Demo)
+\item \textbf{"Cyber Security and Trusted Computing: Network Security Technology" Session Chair} for MILCOM 2018
+\item \textbf{"Data Intensive Service-based Application (DISA)" Session Chair} for Software Engineering and Knowledge Engineering (SEKE 2019)
+\item \textbf{Author (Contributor)} of book "Encyclopedia of Wireless Networks" (Section: Security, Privacy and Trust)
+\item \textbf{"Data Intensive Service-based Application (DISA)" Session Chair} for SEKE 2018
+\item \textbf{"Wireless Network Security" Session Chair} for MILCOM 2017
+\item \textbf{"IoT Device Security" Session Chair} for MILCOM 2016
+\item \textbf{Conference Reviewer} for ICCCN'23, MILCOM'16 - '24, INFOCOM 2019, MobiCom'18 (External), MobiHoc'18 (External), IMWUT'17 (Ubicomp), ICNC'17 CIS, AsiaCCS'16, ICCCN'16, ACM CCS'15, ICDCS'15, ESORICS'15, AsiaCCS'15, Cloud'15, ICCCN'15, DBSec'15, CoudCom'15, ACM CHI'15, CloudNet'15, ISC'15, Securecomm'15, IEEE MSN'15, IPCCC'15, INFOCOM'14, ACM CCS'14, ICDCS'14, ESORICS'14, ICNP'14, AisaCCS'14, MobiHoc'14, CNS'14, CloudNet'14, DBSec'14, SecureComm'14
+\item \textbf{Journal Reviewer} for Computer Networks, Mobile Networks and Applications, MDPI Sensors, IEEE Transactions on Mobile Computing (TMC), IEEE Transactions on Dependable and Secure Computing (TDSC), IEEE JSAC Special Issue on 'Human-In-The-Loop Mobile Networks' (JSAC-HMN), IEEE Internet of Things Journal, Special Issue of Vehicular Communications on 'Vehicular Cloud Networking' (VEHCOM 2016), IEEE Transactions on Parallel and Distributed Systems, IEEE Transactions on Services Computing, IEEE Transactions on Smart Grid, IEEE Transactions on Vehicular Technology, IEEE Transactions on Wireless Communications, IEEE Security \& Privacy magazine, IEEE Network Magazine, Journal of Computer Security, Journal of Mobile Communication, Computation and Information, Journal of Parallel and Distributed Computing
+\item \textbf{Web Chair} for the 27th IEEE Annual Computer Communications Workshop (CCW'13)
+\end{itemize}
+
+\heading{WCU Services}
+
+\begin{itemize}
+\item Assistant Chair, Department of Computer Science [2023 - present]
+\item WCU Research \& Creative Activity Advisory Board (RCAAB) [2023 - present]
+\item WCU Committee for Advising Excellence [2020 - present]
+\item CSM Faculty Proposal Review Committee [2022 - present]
+\item Graduate Coordinator for Computer Science [2020 - 2023]
+\item Computer System Coordinator / System Administrator for Computer Science [2019 - present]
+\item Co-Advisor for WCU Cybersecurity Club [2020 - present]
+\item Advisor for WCU Computer Science Club [2017 - 2021]
+\item Co-Advisor for Bin Lu Women in Computer Science Club [2017 - 2021]
+\item Coach for ICPC ACM programming competition [2016, 2017]
+\end{itemize}
+
+\heading{Teaching}
+\begin{itemize}
+\item CSC 471: Modern Malware Analysis
+\item CSC 472: Software Security
+\item CSC 497: iOS App Development
+\item CSC 583: Advanced Topics in Computer Security
+\item CSC 585: Cloud-assisted Mobile Sensing System
+\item CSC 530: Data Structures
+\item CSC 141: Computer Science I
+\item CSC 142: Computer Science II
+\item CSC 110: Fundamentals in Computer Science
+\item CSC 115: Introduction to Computer Programming
+\end{itemize}
+
+\heading{Honors and Awards}
+
+\begin{tightitem}
+
+\item WCU Provost Research Grant for "Harnessing AI for Tailored Educational Experiences", 2023
+\item WCU Student Engagement Award, 2023
+\item Best Paper Award, PACISE, 2022, 2019
+\item IEEE Senior Member, 2020
+\item Google Cloud Research Grant, 2019
+\item WCU Outstanding Faculty Recipients 2016-2017, 2017-2018
+\item Best Student Paper Award, IEEE ICDCS, 2017
+\item WCU Research in Mathematics and the Sciences (RIMS) Award 2016-2017
+
+\end{tightitem}
+
+\end{description}
+\end{document}

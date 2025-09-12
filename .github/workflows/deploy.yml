@@ -1,0 +1,40 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Deploy to server via SSH
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        port: ${{ secrets.SERVER_PORT }}
+        script: |
+          # Navigate to project directory
+          cd ~/flask-app || mkdir -p ~/flask-app && cd ~/flask-app
+          
+          # Pull latest changes
+          if [ -d ".git" ]; then
+            git pull origin main || git pull origin master
+          else
+            git clone https://github.com/quake0day/Dodrio.git .
+          fi
+          
+          # Build and restart Docker containers
+          docker compose -f docker-compose.prod.yml down
+          docker compose -f docker-compose.prod.yml build --no-cache
+          docker compose -f docker-compose.prod.yml up -d
+          
+          # Clean up old images
+          docker image prune -f

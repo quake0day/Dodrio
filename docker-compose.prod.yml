@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: flask-academic-website-prod
+    restart: always
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./db:/app/db
+      - ./static:/app/static:ro
+      - ./templates:/app/templates:ro
+      - ./logs:/app/logs
+    environment:
+      - FLASK_ENV=production
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - flask-network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  flask-network:
+    driver: bridge
