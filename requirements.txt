@@ -12,7 +12,7 @@ click==8.1.8
 # Web scraping and parsing
 beautifulsoup4==4.12.3
 bs4==0.0.2
-requests==2.32.3
+requests==2.32.4
 selenium==4.27.1
 lxml==5.3.0
 
