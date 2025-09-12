@@ -24,7 +24,7 @@ gunicorn==23.0.0
 
 # SSL/Security
 pyOpenSSL==24.3.0
-cryptography==44.0.0
+cryptography==44.0.1
 
 # Utilities
 certifi==2024.12.14
