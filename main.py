@@ -30,7 +30,7 @@ def teardown_request(exception):
 @app.route("/")
 def index():
     cur = g.db.execute('select * from entries order by year desc')
-    entries = [dict(id=row[0], type=row[1], title=row[2], author=row[3], confname=row[4], urlpaper=row[5], urlslides=row[6], urlcite=row[7], cite=row[8], place=row[9], year=row[10], text=row[11], video=row[12], urlpdf=row[14]) for row in cur.fetchall()]
+    entries = [dict(id=row[0], type=row[1], title=row[2], author=row[3], confname=row[4], urlpaper=row[5], urlslides=row[6], urlcite=row[7], cite=row[8], place=row[9], year=row[10], text=row[11], video=row[12], cluster=row[13], urlpdf='') for row in cur.fetchall()]
    
     res = []
     return render_template('index.html', entries=entries, badges = res)
