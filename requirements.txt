@@ -30,5 +30,5 @@ cryptography==44.0.1
 certifi==2024.12.14
 charset-normalizer==3.4.1
 idna==3.10
-urllib3==2.3.0
+urllib3==2.5.0
 soupsieve==2.6
