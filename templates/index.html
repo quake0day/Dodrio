@@ -75,6 +75,21 @@
       margin-bottom: 0.5em;
       display: inline-block;
     }
+    
+    /* Highlight Si Chen in publications */
+    .highlight-author {
+      font-weight: bold;
+      background-color: #fff3cd;
+      padding: 2px 4px;
+      border-radius: 3px;
+      color: #333;
+    }
+    
+    /* Dark mode support for highlighted author */
+    body.dark-mode .highlight-author {
+      background-color: #664d00;
+      color: #fff3cd;
+    }
   </style>
 </head>
 
@@ -136,6 +151,13 @@
                    href="https://www.researchgate.net/profile/Si_Chen11"
                    target="_blank">
                   <i class="fa fa-university"></i> Research Gate
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="pure-button pure-button-primary"
+                   href="http://portal.wolfctf.com/"
+                   target="_blank">
+                  <i class="fa fa-flag" aria-hidden="true"></i> WolfCTF
                 </a>
               </li>
               <li class="nav-item">
@@ -352,11 +374,30 @@
           <ul>
             <li><strong><i class="fas fa-user-tie"></i> Professional Service:</strong></li>
             <li>
+              <strong>Guest Editor</strong> for Special Issue 
+              <a href="#" target="_blank">
+                "Emerging Sensor Technologies for Enhancing IoT Security and Privacy"
+              </a>, MDPI Sensors, 2025
+            </li>
+            <li>
+              <strong>Guest Editor</strong> for Collection on 
+              <a href="#" target="_blank">
+                Discover Networks
+              </a>, Springer Nature, 2025
+            </li>
+            <li>
               <strong>Invited Speaker</strong> at 
               <a href="https://sapagp.org/event/sapa-gp-2025-annual-conference/" target="_blank">
                 SAPA-GP 2025 Annual Conference (AI and Data Science Track)
               </a>
               <a href="{{ url_for('static', filename='files/2025AC-Brochure.pdf') }}#page=19" target="_blank">[Brochure]</a>
+            </li>
+            <li>
+              <strong>Advisory Board Member</strong> for the Cybersecurity program, 
+              Community College of Philadelphia, 2023–present
+            </li>
+            <li>
+              <strong>Research Fellow</strong> at INTI International University, Malaysia, 2023
             </li>
             <li>
               <strong>Book Chapter Contributor:</strong>
@@ -421,15 +462,36 @@
               <a href="https://www.springer.com/us/book/9783319782638" target="_blank">"Encyclopedia of Wireless Networks"</a>
               (Section: Security, Privacy, and Trust)
             </li>
+            <li>
+              <strong>Web Chair</strong> for the 27th IEEE Annual Computer Communications Workshop 
+              <a href="#" target="_blank">(CCW'13)</a>
+            </li>
+            <li>
+              <strong>IEEE Senior Member</strong>, 2020–present
+            </li>
+            <li>
+              <strong>Regular Reviewer</strong> for:
+              <ul style="margin-left: 20px; list-style-type: circle;">
+                <li>IEEE Transactions: TMC, TDSC, TPDS, TSC, TSG, TVT, TWC</li>
+                <li>IEEE Journals: IoT Journal, Network Magazine, Security & Privacy</li>
+                <li>Other Journals: Computer Networks, Mobile Networks and Applications, MDPI Sensors</li>
+                <li>Conferences: INFOCOM, ACM CCS, ICDCS, MobiCom, MobiHoc, AsiaCCS, ESORICS</li>
+              </ul>
+            </li>
             <!-- Additional items omitted due to length limit -->
           </ul>
           <ul>
             <li><strong><i class="fas fa-university"></i> University Service:</strong></li>
-            <li>Committee for Advising Excellence (CAE), 2021–present</li>
-            <li>CSC Assistant Chair, 2023–present</li>
-            <li>CSC Graduate Coordinator, 2020–2023</li>
-            <li>CSC Computing Coordinator/System Administrator, 2019–present</li>
-            <li>Advisor, WCU Cybersecurity Club, 2021–2022 <a href="https://ramconnect.wcupa.edu/cyber/home/" target="_blank">[link]</a></li>
+            <li>Assistant Chair, Department of Computer Science, 2023–present</li>
+            <li>WCU Research & Creative Activity Advisory Board (RCAAB), 2023–present</li>
+            <li>WCU Committee for Advising Excellence, 2020–present</li>
+            <li>CSM Faculty Proposal Review Committee, 2022–present</li>
+            <li>Graduate Coordinator for Computer Science, 2020–2023</li>
+            <li>Computer System Coordinator/System Administrator for Computer Science, 2019–present</li>
+            <li>Co-Advisor for WCU Cybersecurity Club, 2020–present <a href="https://ramconnect.wcupa.edu/cyber/home/" target="_blank">[link]</a></li>
+            <li>Advisor for WCU Computer Science Club, 2017–2021</li>
+            <li>Co-Advisor for Bin Lu Women in Computer Science Club, 2017–2021</li>
+            <li>Coach for ICPC ACM Programming Competition, 2016, 2017</li>
             <!-- Additional items omitted due to length limit -->
           </ul>
         </section>
@@ -440,8 +502,8 @@
       <div class="posts pure-u-24-24">
         <h1 class="content-subhead">Teaching</h1>
         <section class="post post-description_sameline">
-          <ul><strong>Spring 2025:</strong>
-            I teach malware analysis <a href="https://www.cs.wcupa.edu/SCHEN/malware25/" target="_blank">[Link]</a> and graduate advanced seminar  <a href="https://www.cs.wcupa.edu/SCHEN/csc600/" target="_blank">[Link]</a> in Spring 2025
+          <ul><strong>Academic Year 2025-2026:</strong>
+            I am on sabbatical leave for the academic year 2025-2026.
           </ul>
           <ul><strong>Previous Courses</strong>
             <li>
@@ -458,7 +520,8 @@
             </li>
             <li>
               <i class="fas fa-bug"></i> Modern Malware Analysis
-              [<a href="https://www.cs.wcupa.edu/schen/malware24/" target="_blank">Spring 2024</a>,
+              [<a href="https://www.cs.wcupa.edu/SCHEN/malware25/" target="_blank">Spring 2025</a>,
+               <a href="https://www.cs.wcupa.edu/schen/malware24/" target="_blank">Spring 2024</a>,
                <a href="https://www.cs.wcupa.edu/schen/malware23/" target="_blank">Spring 2023</a>,
                <a href="https://www.cs.wcupa.edu/schen/malware2022" target="_blank">Spring 2022</a>,
                <a href="#" target="_blank">Spring 2021</a>,
@@ -469,6 +532,10 @@
             <li>
               <i class="fab fa-cloudversify"></i> iOS App Development
               [<a href="https://www.cs.wcupa.edu/schen/ios23/" target="_blank">Fall 2023</a>]
+            </li>
+            <li>
+              <i class="fas fa-graduation-cap"></i> Graduate Advanced Seminar (CSC 600)
+              [<a href="https://www.cs.wcupa.edu/SCHEN/csc600/" target="_blank">Spring 2025</a>]
             </li>
           </ul>
         </section>
@@ -499,6 +566,55 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'UA-8217718-2');
+</script>
+
+<!-- Script to highlight Si Chen in publications -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to highlight author name
+    function highlightAuthorName(authorName) {
+        // Get all publication author elements
+        const authorElements = document.querySelectorAll('.publication-author');
+        
+        authorElements.forEach(function(element) {
+            let html = element.innerHTML;
+            
+            // Create regex patterns for different variations
+            const patterns = [
+                new RegExp('\\b' + authorName + '\\b', 'g'),
+                new RegExp('\\b' + authorName.split(' ').reverse().join(', ') + '\\b', 'g'), // Last, First format
+                new RegExp('\\b' + authorName.split(' ')[0] + ', ' + authorName.split(' ')[1] + '\\b', 'g'), // First, Last format
+            ];
+            
+            patterns.forEach(function(pattern) {
+                html = html.replace(pattern, '<span class="highlight-author">$&</span>');
+            });
+            
+            element.innerHTML = html;
+        });
+        
+        // Also check in other sections like Services
+        const allTextElements = document.querySelectorAll('li');
+        allTextElements.forEach(function(element) {
+            // Only process if it contains the author name and isn't already highlighted
+            if (element.textContent.includes(authorName) && !element.querySelector('.highlight-author')) {
+                let html = element.innerHTML;
+                const patterns = [
+                    new RegExp('\\b' + authorName + '\\b', 'g')
+                ];
+                
+                patterns.forEach(function(pattern) {
+                    html = html.replace(pattern, '<span class="highlight-author">$&</span>');
+                });
+                
+                element.innerHTML = html;
+            }
+        });
+    }
+    
+    // Highlight Si Chen
+    highlightAuthorName('Si Chen');
+});
 </script>
 </body>
 </html>
