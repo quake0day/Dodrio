@@ -1,0 +1,89 @@
+# Netscape HTTP Cookie File
+# https://curl.haxx.se/rfc/cookie_spec.html
+# This is a generated file! Do not edit.
+
+#HttpOnly_.google.com	TRUE	/complete/search	FALSE	1550070729	CGIC	Cg5maXJlZm94LWItMS1hYiI_dGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksKi8qO3E9MC44
+#HttpOnly_.google.com	TRUE	/search	FALSE	1550070729	CGIC	Cg5maXJlZm94LWItMS1hYiI_dGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksKi8qO3E9MC44
+.google.com	TRUE	/	FALSE	1539476269	OGPC	19007661-2:
+#HttpOnly_.google.com	TRUE	/verify	TRUE	1549844278	SNID	AO18vWkt-p3WQpSW5Ol6x5TG6HwJI_DRmqUwiBNIyERxrb4qxpy5-Yimaat1U1hUskFHr2XSZN-1OcBxwnIx
+.scholar.google.com	TRUE	/	FALSE	1597364279	GSP	LM=1534292279:S=c5INW5YxOg8hNEc6
+.google.com	TRUE	/	FALSE	1534310609	GOOGLE_ABUSE_EXEMPTION	ID=afa4194297670950:TM=1534299809:C=r:IP=68.133.33.230-:S=APGng0uJeac9A9pRYDNCgy9uZPQMk6ammg
+#HttpOnly_.google.com	TRUE	/	FALSE	1549851824	NID	136=bWCJ1dwQEIwa18hTZ5zKeyYv3P964cXrVfEXvaQDQm-uD2-Ja2cPeLapDpNb-XA9246KELOstn6tKAdDbqQgjh6bbA6-8b4nvBshBkgMtHnCmuu67uZw9IYz1VG0GDUaDHf803rjcUc
+www.google.com	FALSE	/	FALSE	1534300744	DV	Y4MPAgWP5OYY0N8QXx_eM9f196O2UxY
+.google.com	TRUE	/	FALSE	1536892333	OGP	-5061451:
+.google.com	TRUE	/	FALSE	1536892333	1P_JAR	2018-08-15-02
+www.citi.com	FALSE	/	TRUE	1491421149	cardFilterOptions	
+www.pokemon.com	FALSE	/	FALSE	1550859562	_sdsat_link	
+burpee.com	FALSE	/	FALSE	1491539822	__cq_seg	
+investopedia.com	FALSE	/	FALSE	1489936996	_dy_c_exps	
+#HttpOnly_ieeexplore.ieee.org	FALSE	/	TRUE	0	JSESSIONID	RME6-LG9NaRQDJ5pt1EdAdwyRHkIFzHYNd4_CUJ1n2-QUfi18k9C!1554313941
+#HttpOnly_.ieeexplore.ieee.org	TRUE	/	TRUE	0	ipCheck	68.133.33.230
+#HttpOnly_ieeexplore.ieee.org	FALSE	/	TRUE	0	TS011813a0	012f350623c6e6039e22ece7a01a531c8b1ceaa2ea474339c8debe99a3cbd7ce25bf93cde1dfcc811b597657fde06d590cf2e7ede3503bff94dda70207dbf722493fc0522c73802d467f5abe7003fe8e7104c4aafc
+#HttpOnly_.ieeexplore.ieee.org	TRUE	/	TRUE	0	TS01d430e1	012f350623676b6a2690387eb647d6cdbcb9ff61b3474339c8debe99a3cbd7ce25bf93cde14fa9c0fbfe5464c6a007ab3bf088d276efa1d2d7ae97c1b6c6a0a35a20b7413773e1f22565e5743b655e02385eea5fb9ed6f8629cc0677c2d9263081b6cfe3684cf27d9db7a6741f7a9245ace03e3b295915478a38d5d749ec64dda956917adffe6f1330068e4d5587819d1665d285e243017840afd32a80fb949d0538c01841
+#HttpOnly_ieeexplore.ieee.org	FALSE	/	TRUE	0	TS011813a0_26	014082121d62cb0077eac9252dc376709864326431a1a9d655540093f7e4ebdbc1de37af90436b4f619598154951c88bc381ed9021e013ffa8d6f329a92ecbe0e3a06ad03c
+#HttpOnly_ieeexplore.ieee.org	FALSE	/	FALSE	1534379114	WLSESSION	186802828.20480.0000
+rubiconproject.com	FALSE	/	FALSE	1489301303	csi15	
+rubiconproject.com	FALSE	/	FALSE	1489301303	csc15	
+rubiconproject.com	FALSE	/	FALSE	1489301303	csi2	
+rubiconproject.com	FALSE	/	FALSE	1489301303	csc2	
+www.microsoft.com	FALSE	/	FALSE	1518423907	__uvt	
+#HttpOnly_.statcounter.com	TRUE	/	FALSE	1527716868	__cfduid	d9f4db7a1301f0ca241ac752df272b9631496180868
+.apple.com	TRUE	/	FALSE	1580595172	s_vi	[CS]v1|2D39C872052CEDFA-600029A820000988[CE]
+.apple.com	TRUE	/	FALSE	1517859838	s_pathLength	homepage%3D1%2C
+.apple.com	TRUE	/	FALSE	1517859838	s_invisit_n2_us	3
+.apple.com	TRUE	/	FALSE	1580930038	s_vnum_n2_us	3%7C2
+.apple.com	TRUE	/	FALSE	1675624439	s_fid	6B838D653322CC1A-0DC8329627084975
+.apple.com	TRUE	/	FALSE	0	s_cc	true
+.mozilla.org	TRUE	/	FALSE	1804358612	optimizelyEndUserId	oeu1488998612889r0.704772307325846
+.mozilla.org	TRUE	/	FALSE	1804358613	optimizelySegments	%7B%22245617832%22%3A%22none%22%2C%22245677587%22%3A%22ff%22%2C%22245875585%22%3A%22direct%22%2C%22246048108%22%3A%22false%22%2C%22869421433%22%3A%22true%22%2C%221867940538%22%3A%22true%22%7D
+.mozilla.org	TRUE	/	FALSE	1804358613	optimizelyBuckets	%7B%7D
+.mozilla.org	TRUE	/	FALSE	1488998628	optimizelyPendingLogEvents	%5B%5D
+.www.mozilla.org	TRUE	/	FALSE	1559252868	sc_is_visitor_unique	rx11297457.1496180869.A584728FF8A44F94CA6A2F601773832F.1.1.1.1.1.1.1.1.1
+.mozilla.org	TRUE	/	FALSE	1517858098	_gat_UA-36116321-1	1
+.mozilla.org	TRUE	/	FALSE	1597364444	_ga	GA1.2.1338969652.1488998613
+.mozilla.org	TRUE	/	FALSE	1534378844	_gid	GA1.2.1732341750.1534292260
+.mozilla.org	TRUE	/	FALSE	1534292504	_gat	1
+www.whoishostingthis.com	FALSE	/	FALSE	1536884500	split_var	49%3A188
+www.whoishostingthis.com	FALSE	/	FALSE	1534378900	jsi	TW96aWxsYSUyRjUuMCUyMChNYWNpbnRvc2glM0IlMjBJbnRlbCUyME1hYyUyME9TJTIwWCUyMDEwLjEzJTNCJTIwcnYlM0E1OC4wKSUyMEdlY2tvJTJGMjAxMDAxMDElMjBGaXJlZm94JTJGNTguMA%3D%3D
+www.whoishostingthis.com	FALSE	/	FALSE	1534378900	currency	%7B%22continent_code%22%3A%22NA%22%2C%22country_code%22%3A%22US%22%2C%22currency_code%22%3A%22USD%22%2C%22currency_symbol%22%3A%22%24%22%2C%22exchange_rate%22%3A%221.0000%22%7D
+.whoishostingthis.com	TRUE	/	FALSE	0	__utmc	78736338
+.whoishostingthis.com	TRUE	/	FALSE	1534293100	__utmt	1
+.whoishostingthis.com	TRUE	/	FALSE	1620692500	lc_sso1509622	1534292500939
+www.whoishostingthis.com	FALSE	/	FALSE	0	_hjIncludedInSample	1
+.whoishostingthis.com	TRUE	/	FALSE	1620692501	__lc.visitor_id.1509622	S1534292500.b364f936dd
+.whoishostingthis.com	TRUE	/	FALSE	1597364501	__utma	78736338.1811956948.1534292501.1534292501.1534292501.1
+.whoishostingthis.com	TRUE	/	FALSE	1534294301	__utmb	78736338.2.9.1534292501
+.whoishostingthis.com	TRUE	/	FALSE	1550060501	__utmz	78736338.1534292501.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)
+feedback.azure.com	FALSE	/	FALSE	1518426848	__uvt	
+youtube.com	FALSE	/	FALSE	1489975462	x-Jv9.resume	
+	FALSE	/	FALSE	1573242699	_ga	GA1.1.514432347.1510170700
+	FALSE	/	FALSE	1510257099	_gid	GA1.1.1924223177.1510170700
+#HttpOnly_hengedocks.com	FALSE	/	TRUE	2117935088	secure_customer_sig	
+#HttpOnly_.google.com	TRUE	/	FALSE	1511992115	NID	104=lAy7vf-WDWcqfN0nwcaGaAhvB3ofjfRIoSE-ahylkizF2qmWsixK03HLy0I4-P0r_EE69YOPfTVTNUNFi_1M4et9TbjgE66Ul4_mC2vQBHyhCZhA2AHpvzLQrCmAnk8e
+homedepot.com	FALSE	/	FALSE	1538619657	THD_CACHE_NAV_PERSIST	
+#HttpOnly_.facebook.com	TRUE	/	TRUE	1542068500	fr	0QLXaVuIDsQ8cwTFO..Bbc3IU...1.0.Bbc3IU.
+gamestop.com	FALSE	/	FALSE	1490203639	_dy_c_exps	
+#HttpOnly_.accounts.livechatinc.com	TRUE	/customer	TRUE	1628900501	__lc_cid	039b801a-afec-4de4-66eb-80a443834f35
+#HttpOnly_.accounts.livechatinc.com	TRUE	/customer	TRUE	1628900501	__lc_cst	a70e3f73be9b5fc032d65e735ad96008d78ac8fe2f32c0a17a02fc7e7c148235e3109a1a829c1c5acf4e1e6daa7240023596ebfee01d04e72b4e270329af
+#HttpOnly_.accounts.livechatinc.com	TRUE	/	TRUE	1628900501	__lc_mcid	039b801a-afec-4de4-66eb-80a443834f35
+#HttpOnly_.accounts.livechatinc.com	TRUE	/	TRUE	1628900501	__lc_mcst	a70e3f73be9b5fc032d65e735ad96008d78ac8fe2f32c0a17a02fc7e7c148235e3109a1a829c1c5acf4e1e6daa7240023596ebfee01d04e72b4e270329af
+.livechatinc.com	TRUE	/licence/1509622/v2/	FALSE	0	3rdparty	allow
+.livechatinc.com	TRUE	/licence/1509622/v2/	FALSE	0	recent_window	2348261
+.livechatinc.com	TRUE	/licence/1509622/v2/	FALSE	0	__lc_vv	2
+.livechatinc.com	TRUE	/licence/1509622/v2/	FALSE	0	message_text	
+#HttpOnly_.livechatinc.com	TRUE	/licence/1509622	FALSE	1631492902	__livechat_lastvisit	whoishostingthis.com%3D1534292902
+#HttpOnly_.livechatinc.com	TRUE	/licence/1509622	FALSE	1631492902	__livechat	lc_all_invitation%3D0%26lc_auto_invites_shown%3D%26lc_chat_number%3D0%26lc_client_version%3D%26lc_goals_achieved%3D%26lc_integration_params%3D%26lc_lang%3Den%26lc_last_chat_start_time%3D0%26lc_last_conference_id%3D%26lc_last_operator_key%3D%26lc_last_operator_key_per_skill%3D%26lc_last_visit%3D1534292501%26lc_nick%3D%26lc_ok_invitation%3D0%26lc_page_view%3D1%26lc_session%3DS1534292500.b364f936dd%26lc_visit_number%3D1%26mcid%3D039b801a-afec-4de4-66eb-80a443834f35%26mcid_done%3D0
+.livechatinc.com	TRUE	/licence/1509622/v2/	FALSE	0	notification[status_ping]	%7B%22timestamp%22%3A1534292912896%2C%22message%22%3A%7B%22agent_available%22%3Atrue%2C%22visitor_is_chatting%22%3Afalse%2C%22message%22%3A%7B%22name%22%3A%22status_ping%22%7D%7D%2C%22group%22%3A11%7D
+.livechatinc.com	TRUE	/licence/1509622/v2/	FALSE	0	main_window_timestamp	1534292915078
+.livechatinc.com	TRUE	/licence/1509622/v2/	FALSE	0	main_window_timestamp_11	1534292915078
+www.tytyga.com	FALSE	/	FALSE	1519064879	AffiliateID	
+www.tytyga.com	FALSE	/	FALSE	1518595200	vsettings	
+allrecipes.cn	FALSE	/	FALSE	1490553580	RC	
+allrecipes.cn	FALSE	/	FALSE	1490553580	RS	
+#HttpOnly_.google.com	TRUE	/	FALSE	1504809887	NID	98=w6F7aI9ymXaawYkyyH38PrxGtBcNRj2m-7Qa_IhchHTtaStdNx-xe6wONzLIxTQDwnZr78ao8lnW8FuwijFncGcwVZ_CazXXCxSdG5CtP_VMv_u4vJ7oWwejoQ56LtUi
+www.xn--80ak6aa92e.com	FALSE	/	FALSE	1580595136	_ga	GA1.1.107092454.1508441835
+www.xn--80ak6aa92e.com	FALSE	/	FALSE	1517609536	_gid	GA1.1.973037181.1517523137
+www.xn--80ak6aa92e.com	FALSE	/	FALSE	1517523196	_gat	1
+.xn--80ak6aa92e.com	TRUE	/	FALSE	1580930041	_ga	GA1.2.107092454.1508441835
+.xn--80ak6aa92e.com	TRUE	/	FALSE	1517944441	_gid	GA1.2.1246335234.1517858041
+.xn--80ak6aa92e.com	TRUE	/	FALSE	1517858101	_gat	1
