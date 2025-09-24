@@ -1,0 +1,12 @@
+
+.custom-logo img {
+    width: 450px; /* 或者您想要的其他大小 */
+    height: auto; /* 保持纵横比 */
+}
+
+@media (max-width: 600px) { /* 600px 为示例断点，您可以根据需要调整 */
+    .pica {
+        width: 300px; /* 较小屏幕上的大小 */
+        height: auto; /* 保持纵横比 */
+    }
+}
