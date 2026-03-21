@@ -4,69 +4,104 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Flask-based personal academic website (Professor Si Chen's profile) with Google Scholar integration for tracking and displaying publications with citation counts. The system uses SQLite for data storage and includes automated citation updating functionality.
+Flask-based personal academic website (Professor Si Chen's profile) with Google Scholar integration for tracking and displaying publications with citation counts. Uses SQLite for storage, Docker for deployment, and Nginx as a reverse proxy in production.
 
 ## Commands
 
-### Running the Application
+### Development
 
-- **Development server**: `python FlaskApp/main.py` or `python FlaskApp/wsgi.py` (runs on port 443 with SSL)
-- **Virtual environment activation**: `source FlaskApp/venv/bin/activate` (Python 2.7 environment)
+```bash
+# Docker (preferred)
+make build              # Build Docker containers
+make dev                # Run with live output (port 5001)
+make run                # Run in background (port 5001)
+make stop               # Stop containers
+make logs               # View container logs
+make shell              # Access container shell
 
-### Citation Update
+# Native Python
+python main.py          # Runs on port 5001
+```
 
-- **Manual update**: `python FlaskApp/citation_update.py`
-- **Automated update via cron**: `sh FlaskApp/run_update.sh` (logs to citationUpdate.log)
+### Production
 
-### Database Management
+```bash
+make prod               # Run with Nginx reverse proxy (ports 80/443)
+# Or directly:
+docker compose -f docker-compose.prod.yml up -d
+```
 
-- **Database location**: `FlaskApp/db/information.db`
-- **Schema**: See `FlaskApp/schema.sql` for table structure (entries table with publication data)
+### Database
+
+```bash
+make init-db            # Initialize SQLite database from schema
+make backup-db          # Backup database to backups/ directory
+# Database file: db/information_.db
+# Schema: db/schema.sql
+```
+
+### Citation Updates
+
+```bash
+make update-citations                   # Update citation counts (in Docker)
+python update_citations.py              # Python 3 version (title-based)
+python FlaskApp/citation_update.py      # Legacy Python 2 version (cluster-based)
+```
+
+### CI/CD
+
+Push to `main` triggers GitHub Actions (`.github/workflows/deploy.yml`) which SSHs to the server and redeploys via Docker Compose. No automated tests in the pipeline.
 
 ## Architecture
 
-### Core Components
+### Request Flow
 
-1. **Main Flask Application** (`FlaskApp/main.py`)
-   - SQLite database integration using g.db connection pattern
-   - Single route serving index page with publication entries
-   - Database queries executed directly in route handlers
+```
+Client → Nginx (:443 SSL) → Gunicorn (:5000, 4 workers) → Flask app → SQLite
+```
 
-2. **Google Scholar Integration** (`FlaskApp/scholar.py`, `FlaskApp/citation_update.py`)
-   - `scholar.py`: Core Google Scholar API wrapper with query classes
-   - `citation_update.py`: Updates citation counts for publications
-   - Uses cluster IDs for efficient citation tracking
-   - Implements rate limiting with random sampling to avoid being blocked
+### Entry Points
 
-3. **Database Structure**
-   - Single `entries` table containing publication information
-   - Fields: id, type, title, author, confname, urlpaper, urlslides, urlcite, cite (citation count), place, year, text, cluster (Google Scholar cluster ID)
+- **`main.py`** (root) — Primary Flask app. Single `/` route queries all publications from SQLite, renders `templates/index.html`. Also serves `/health` endpoint.
+- **`FlaskApp/main.py`** — Older copy of the same app (legacy structure).
 
-4. **Web Scraping Components**
-   - `scrape_author.py`: Author information extraction
-   - `scrape_publication.py`: Publication data extraction
-   - Uses BeautifulSoup for HTML parsing (see `db/updater/requirements.txt`)
+### Database
 
-### Key Implementation Details
+Single `entries` table in SQLite (`db/information_.db`). Key columns: `id`, `type`, `title`, `author`, `confname`, `urlpaper`, `urlslides`, `cite` (citation count), `year`, `cluster` (Google Scholar cluster ID), `video`.
 
-- **SSL Configuration**: Application configured to run with SSL certificates (see `wsgi.py`)
-- **Citation Update Strategy**: Random sampling of 8 publications per run to avoid rate limiting
-- **Database Connection Pattern**: Uses Flask's g object for per-request database connections
-- **Template System**: Uses Jinja2 templates with PureCSS framework for styling
+Database connections use Flask's `g` object pattern (`before_request`/`teardown_request`). No ORM — raw SQL queries.
 
-## Dependencies
+### Google Scholar Integration
 
-Primary dependencies include:
-- Flask (web framework)
-- sqlite3 (database)
-- BeautifulSoup4 (HTML parsing for web scraping)
-- selenium (automated browser interaction for scraping)
-- werkzeug (WSGI utilities)
+- **`scholar.py`** (1310 lines) — Google Scholar API wrapper with `ScholarQuery`, `SearchScholarQuery`, `ClusterScholarQuery` classes.
+- **`update_citations.py`** — Python 3 citation updater using title-based search.
+- **`FlaskApp/citation_update.py`** — Legacy Python 2 updater using cluster IDs, randomly samples 8 publications per run to avoid rate limiting.
+- **Cron automation**: `sh FlaskApp/run_update.sh` → logs to `citationUpdate.log`.
 
-Note: System appears to use Python 2.7 in the virtual environment, though Python 3.10.9 is available system-wide.
+### Data Import Scripts
 
-## Security Considerations
+- **`update_db_from_cv.py`** — Parses LaTeX CV file and imports publications into the database.
+- **`add_book_chapters.py`** — Adds book chapter entries.
+- **`restore_official_urls.py`** / **`restore_pdf_links.py`** — URL restoration utilities.
 
-- SSL certificates present in directory (*.crt, *.key files)
-- LDAP integration code exists in `db/updater/main.py` but appears to be a separate component
-- Direct SQL query construction in citation_update.py - be cautious with SQL injection risks when modifying
+### Frontend
+
+Jinja2 templates with Pure CSS 3.0.0 framework. No JavaScript build process. Static assets served from `static/` (CSS, images, paper PDFs, presentation slides).
+
+### Docker Setup
+
+- **`Dockerfile`** — Python 3.12-slim base, Gunicorn WSGI server.
+- **`docker-compose.yml`** — Development: Flask on port 5001, SQLite volume mount, health checks.
+- **`docker-compose.prod.yml`** — Production: adds Nginx with SSL termination, gzip, caching headers, security headers.
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `main.py` | Flask application entry point |
+| `db/information_.db` | SQLite database (note the underscore) |
+| `db/schema.sql` | Database schema definition |
+| `templates/index.html` | Main page template |
+| `requirements.txt` | Python dependencies (Flask 3.1.0, Python 3.12) |
+| `nginx.conf` | Production Nginx configuration |
+| `.env.example` | Environment variable template |

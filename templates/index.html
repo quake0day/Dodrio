@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <meta name="description" content="Si Chen - Professor of Computer Science at West Chester University. Research in AI, Machine Learning, and Mobile Computing.">
   <meta name="keywords" content="Si Chen, Computer Science, AI, Machine Learning, West Chester University">
   <meta name="author" content="Si Chen">
@@ -10,28 +10,15 @@
   <title>Si Chen - Professor of Computer Science | West Chester University</title>
   
   <!-- Preconnect to external domains for better performance -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com">
-  <link rel="preconnect" href="https://use.fontawesome.com">
 
-  <!-- Font Awesome - Combined version for better performance -->
-  <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
-        crossorigin="anonymous" 
-        referrerpolicy="no-referrer" />
-
-  <!-- PureCSS (Core + Responsive) -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
-        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
-        crossorigin="anonymous">
+  <!-- CSS - load synchronously for correct rendering -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='pure/pure.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='pure/grids-responsive-min.css') }}">
-
-  <!-- 原先的 blog.css/style.css 如需要可保留 -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/layouts/blog.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/media-logos.css') }}">
+  <link rel="preload" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ url_for('static', filename='fontawesome/css/all.min.css') }}"></noscript>
 
   <!-- Google Analytics - Move to end of body for better performance -->
 
@@ -66,7 +53,7 @@
     }
     body.dark-mode .footer {
       background: #000;
-      color: #999;
+      color: #b3b3b3;
     }
     
     /* Navigation styles */
@@ -90,6 +77,169 @@
       background-color: #664d00;
       color: #fff3cd;
     }
+
+    /* Title info styling (replacing h4 for accessibility) */
+    .title-info {
+      font-size: 1.1em;
+      margin: 0.3em 0;
+      color: inherit;
+    }
+
+    /* Reduce section spacing */
+    .posts {
+      padding: 0.5em 0;
+    }
+    .content-subhead {
+      margin: 15px 0 8px;
+      font-size: 1.1em;
+    }
+    section.post {
+      margin-bottom: 0.5em;
+    }
+
+    /* Publications list - left/right margins, text left-aligned */
+    .publications-list {
+      margin: 0 20px;
+      text-align: left;
+    }
+    .publication-item {
+      text-align: left;
+    }
+
+    /* Mobile responsive - override Pure CSS grid */
+    @media screen and (max-width: 568px) {
+      /* Force main container to full width - allow scrolling */
+      html, body {
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+      .pure-g {
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+      }
+      /* Only target main layout grid items, NOT media logos */
+      body > .pure-g > [class*="pure-u-"] {
+        width: 100% !important;
+      }
+      .sidebar-spacer {
+        display: none !important;
+        width: 0 !important;
+      }
+      .main-content {
+        width: 100% !important;
+        max-width: 100vw !important;
+        padding: 0 15px !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+      .profile-image, .profile-info {
+        width: 100% !important;
+        text-align: center !important;
+        display: block !important;
+        float: none !important;
+      }
+      .profile-image {
+        display: flex !important;
+        justify-content: center !important;
+        margin-bottom: 10px !important;
+      }
+      .pica {
+        max-width: 150px !important;
+        margin: 0 auto !important;
+        display: block !important;
+      }
+      h1 {
+        font-size: 1.3em !important;
+        text-align: center !important;
+      }
+      .title-info {
+        text-align: center !important;
+        font-size: 0.9em !important;
+      }
+      .content-subhead {
+        font-size: 0.9em !important;
+        margin: 8px 0 5px !important;
+      }
+      .pure-button {
+        padding: 0.3em 0.5em !important;
+        font-size: 0.75em !important;
+      }
+      .nav-list {
+        padding-left: 0 !important;
+        text-align: center !important;
+      }
+      .publication, .pure-u-17-24, .pure-u-2-24 {
+        width: 100% !important;
+        display: block !important;
+      }
+      .publication-item {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 0.8em;
+        margin-bottom: 0.8em;
+      }
+      /* Media logos - 3 per row on mobile */
+      .media-logo {
+        width: 30% !important;
+        min-width: 80px !important;
+        max-width: 100px !important;
+        padding: 5px !important;
+        display: inline-block !important;
+        vertical-align: middle !important;
+      }
+      .media-logo img {
+        max-width: 70px !important;
+        max-height: 35px !important;
+        height: auto !important;
+      }
+      ul, ol {
+        padding-left: 18px !important;
+      }
+      li {
+        font-size: 0.85em;
+      }
+      .post-description_sameline {
+        width: 100% !important;
+      }
+      /* Posts container full width */
+      .posts {
+        width: 100% !important;
+        padding: 0.5em 0 !important;
+      }
+      /* About me paragraph - fix text alignment on mobile */
+      .post-description {
+        text-align: left !important;
+        text-justify: none !important;
+        hyphens: none !important;
+        -webkit-hyphens: none !important;
+        line-height: 1.6 !important;
+        font-size: 0.9em !important;
+      }
+      /* Handle long URLs and text */
+      a, p, span, li {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+      }
+      /* Images should not exceed viewport */
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+      }
+      /* Tables scroll horizontally if needed */
+      table {
+        display: block !important;
+        overflow-x: auto !important;
+        max-width: 100% !important;
+      }
+      /* Pre/code blocks */
+      pre, code {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        max-width: 100% !important;
+      }
+    }
   </style>
 </head>
 
@@ -97,31 +247,35 @@
 
 
 <div class="pure-g">
-  <div class="pure-u-xl-3-24 pure-u-sm-0-24 pure-u-md-1-24"></div>
+  <div class="pure-u-xl-3-24 pure-u-sm-0-24 pure-u-md-1-24 sidebar-spacer"></div>
 
-  <div class="pure-u-xl-16-24 pure-u-sm-23-24 pure-u-md-22-24">
+  <div class="pure-u-xl-16-24 pure-u-sm-23-24 pure-u-md-22-24 main-content">
+    <main>
     <!-- 顶部头像 + 个人信息 -->
     <div class="posts pure-u-24-24">
-      <div class="pure-u-11-24">
-        <img alt="Si Chen" class="pure-img-responsive pica"
-             src="https://pub-b32228675f7142b4b841b87372208955.r2.dev/si.jpg"
-             loading="lazy">
+      <div class="pure-u-11-24 profile-image">
+        <picture>
+          <source srcset="{{ url_for('static', filename='images/si.webp') }}" type="image/webp">
+          <img alt="Si Chen - Professor of Computer Science" class="pure-img-responsive pica"
+               src="{{ url_for('static', filename='images/si.jpg') }}" width="255" height="255"
+               loading="lazy">
+        </picture>
       </div>
-      <div class="pure-u-12-24">
+      <div class="pure-u-12-24 profile-info">
         <h1>Si Chen</h1>
-        <h4>Professor</h4>
-        <h4>Department of Computer Science</h4>
-        <h4>25 University Ave. | Room 131</h4>
-        <h4>West Chester, PA 19383</h4>
-        <h4>tel: 610-436-6998 | fax: 610-436-3530</h4>
-        <h4>Founder of Chen AI Solutions LLC</h4>
+        <p class="title-info"><strong>Professor</strong></p>
+        <p class="title-info">Department of Computer Science</p>
+        <p class="title-info">25 University Ave. | Room 131</p>
+        <p class="title-info">West Chester, PA 19383</p>
+        <p class="title-info">tel: 610-436-6998 | fax: 610-436-3530</p>
+        <p class="title-info"><strong>Founder of Chen AI Solutions LLC</strong></p>
       </div>
     </div>
 
     <div>
       <!-- About Me -->
       <div class="posts">
-        <h1 class="content-subhead">About Me</h1>
+        <h2 class="content-subhead">About Me</h2>
         <div class="post-description_sameline pure-u-23-24">
           <!-- 导航按钮区 -->
           <nav class="nav">
@@ -155,9 +309,16 @@
               </li>
               <li class="nav-item">
                 <a class="pure-button pure-button-primary"
-                   href="http://portal.wolfctf.com/"
+                   href="https://badgerctf.com/"
                    target="_blank">
-                  <i class="fa fa-flag" aria-hidden="true"></i> WolfCTF
+                  <i class="fa fa-flag" aria-hidden="true"></i> BadgerCTF
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="pure-button pure-button-primary"
+                   href="https://garden.darlingtree.com"
+                   target="_blank">
+                  <i class="fa fa-leaf" aria-hidden="true"></i> My Garden
                 </a>
               </li>
               <li class="nav-item">
@@ -195,59 +356,79 @@
             <br />
             I am an IEEE Senior Member and an active member of ACM.
           </p>
-          
 
-        <!-- Voice hacking featured -->
-        <div class="post-description_sameline pure-u-24-24">
-          My previous research papers have been featured in:
-          <div class="pure-g" style="align-items: center;">
+          <!-- Voice hacking featured -->
+          <div class="post-description_sameline pure-u-24-24">
+            <p class="post-description">My previous research papers have been featured in:</p>
+            <div class="pure-g" style="align-items: center;">
             <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-7 media-logo">
               <a href="https://www.scientificamerican.com/article/can-you-hear-me-now-how-to-protect-yourself-from-voice-hackers/"
                  target="_blank">
-                <img src="{{ url_for('static', filename='images/sa.png') }}"
-                     alt="SCIENTIFIC AMERICAN">
+<picture>
+                  <source srcset="{{ url_for('static', filename='images/sa.webp') }}" type="image/webp">
+                  <img src="{{ url_for('static', filename='images/sa.png') }}" width="220" height="60"
+                       alt="SCIENTIFIC AMERICAN" loading="lazy">
+                </picture>
               </a>
             </div>
             <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-7 media-logo">
               <a href="https://www.cbsnews.com/news/protecting-your-smartphone-from-voice-impersonators/"
                  target="_blank">
-                <img src="{{ url_for('static', filename='images/cbs.png') }}"
-                     alt="CBS News">
+<picture>
+                  <source srcset="{{ url_for('static', filename='images/cbs.webp') }}" type="image/webp">
+                  <img src="{{ url_for('static', filename='images/cbs.png') }}" width="410" height="78"
+                       alt="CBS News" loading="lazy">
+                </picture>
               </a>
             </div>
             <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-7 media-logo">
               <a href="https://www.sciencedaily.com/releases/2017/06/170605124108.htm"
                  target="_blank">
-                <img src="{{ url_for('static', filename='images/sd.png') }}"
-                     alt="Science Daily">
+<picture>
+                  <source srcset="{{ url_for('static', filename='images/sd.webp') }}" type="image/webp">
+                  <img src="{{ url_for('static', filename='images/sd.png') }}" width="410" height="78"
+                       alt="Science Daily" loading="lazy">
+                </picture>
               </a>
             </div>
             <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-7 media-logo">
               <a href="https://www.business-standard.com/article/news-ians/app-to-use-smartphone-compass-to-foil-voice-hacking-117060600474_1.html"
                  target="_blank">
-                <img src="{{ url_for('static', filename='images/business-standard.png') }}"
-                     alt="Business Standard">
+<picture>
+                  <source srcset="{{ url_for('static', filename='images/business-standard.webp') }}" type="image/webp">
+                  <img src="{{ url_for('static', filename='images/business-standard.png') }}" width="220" height="60"
+                       alt="Business Standard" loading="lazy">
+                </picture>
               </a>
             </div>
             <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-7 media-logo">
               <a href="http://www.techradar.com/news/your-smartphones-compass-can-protect-you-from-voice-hacks"
                  target="_blank">
-                <img src="{{ url_for('static', filename='images/techradar.png') }}"
-                     alt="TechRadar">
+<picture>
+                  <source srcset="{{ url_for('static', filename='images/techradar.webp') }}" type="image/webp">
+                  <img src="{{ url_for('static', filename='images/techradar.png') }}" width="410" height="78"
+                       alt="TechRadar" loading="lazy">
+                </picture>
               </a>
             </div>
             <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-7 media-logo">
               <a href="http://www.buffalo.edu/news/releases/2017/06/007.html"
                  target="_blank">
-                <img src="{{ url_for('static', filename='images/ub.png') }}"
-                     alt="University at Buffalo">
+<picture>
+                  <source srcset="{{ url_for('static', filename='images/ub.webp') }}" type="image/webp">
+                  <img src="{{ url_for('static', filename='images/ub.png') }}" width="410" height="78"
+                       alt="University at Buffalo" loading="lazy">
+                </picture>
               </a>
             </div>
             <div class="pure-u-1 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-7 media-logo">
               <a href="http://gadgets.ndtv.com/apps/news/siri-wechat-and-other-apps-may-put-you-at-risk-of-voice-hacking-study-1708501"
                  target="_blank">
-                <img src="{{ url_for('static', filename='images/gadget360.png') }}"
-                     alt="Gadget 360">
+<picture>
+                  <source srcset="{{ url_for('static', filename='images/gadget360.webp') }}" type="image/webp">
+                  <img src="{{ url_for('static', filename='images/gadget360.png') }}" width="410" height="78"
+                       alt="Gadget 360" loading="lazy">
+                </picture>
               </a>
             </div>
           </div>
@@ -257,79 +438,89 @@
 
       <!-- Selected publications and pre-prints -->
       <div class="posts pure-u-24-24">
-        <h1 class="content-subhead">Selected publications and pre-prints</h1>
+        <h2 class="content-subhead">Selected publications and pre-prints</h2>
         <section class="post post-description">
-          <ul>
+          <div class="publications-list">
             {% for entrie in entries %}
-            <div class="pure-u-17-24 publication">
-              {% if entrie['type'] == 1 %}
-                <a class="post-category post-category-design">C</a>
-              {% endif %}
-              {% if entrie['type'] == 2 %}
-                <a class="post-category post-category-pure">J</a>
-              {% endif %}
-              {% if entrie['type'] == 3 %}
-                <a class="post-category post-category-js">P</a>
-              {% endif %}
-              {% if entrie['type'] == 4 %}
-                <a class="post-category post-category-yui">B</a>
-              {% endif %}
-              <span class="publication-title">
-                <a href="{{ entrie['urlpaper'] }}" target="_blank">
-                  {{ entrie['title'] }}
+            <article class="pure-g publication-item">
+              <div class="pure-u-17-24 publication">
+                {% if entrie['type'] == 1 %}
+                  <span class="post-category post-category-design">C</span>
+                {% endif %}
+                {% if entrie['type'] == 2 %}
+                  <span class="post-category post-category-pure">J</span>
+                {% endif %}
+                {% if entrie['type'] == 3 %}
+                  <span class="post-category post-category-js">P</span>
+                {% endif %}
+                {% if entrie['type'] == 4 %}
+                  <span class="post-category post-category-yui">B</span>
+                {% endif %}
+                <span class="publication-title">
+                  <a href="{{ entrie['urlpaper'] }}" target="_blank">
+                    {{ entrie['title'] }}
+                  </a>
+                </span>
+                <br />
+                <span class="publication-author">{{ entrie['author'] }}.</span>
+                <br />
+                <span class="publication-conf">{{ entrie['confname'] }}</span>
+                {% if entrie['type'] == 1 and entrie['place'] %}, {{ entrie['place'] }}.{% else %}.{% endif %}
+                <br />
+                {% if entrie['urlpdf'] %}
+                  <a href="{{ entrie['urlpdf'] }}" target="_blank">
+                    [<i class="far fa-file-alt" aria-hidden="true"></i> paper]
+                  </a>
+                {% endif %}
+                {% if entrie['urlslides'] %}
+                  <a href="{{ entrie['urlslides'] }}" target="_blank">
+                    [<i class="fab fa-slideshare" aria-hidden="true"></i> slides]
+                  </a>
+                {% endif %}
+                {% if entrie['video'] %}
+                  <a href="{{ entrie['video'] }}" target="_blank">
+                    [<i class="fab fa-youtube" aria-hidden="true"></i> video]
+                  </a>
+                {% endif %}
+                {% if entrie['text'] %}
+                  {% if entrie['urlaward'] %}
+                  <a href="{{ entrie['urlaward'] }}" target="_blank" class="button-error pure-button">
+                    <i class="fas fa-certificate" aria-hidden="true"></i> {{ entrie['text'] }}
+                  </a>
+                  {% else %}
+                  <span class="button-error pure-button">
+                    <i class="fas fa-certificate" aria-hidden="true"></i> {{ entrie['text'] }}
+                  </span>
+                  {% endif %}
+                {% endif %}
+              </div>
+              <div class="pure-u-2-24">
+                <a class="post-category" href="{{ entrie['urlcite'] }}">
+                  {{ entrie['cite'] }}
                 </a>
-              </span>
-              <br />
-              <span class="publication-author">{{ entrie['author'] }}.</span>
-              <br />
-              <span class="publication-conf">{{ entrie['confname'] }}</span>
-              {% if entrie['type'] == 1 %}, {{ entrie['place'] }}.{% else %}.{% endif %}
-              <br />
-              {% if entrie['urlpdf'] %}
-                <a href="{{ entrie['urlpdf'] }}" target="_blank">
-                  [<i class="far fa-file-alt"></i> paper]
-                </a>
-              {% endif %}
-              {% if entrie['urlslides'] %}
-                <a href="{{ entrie['urlslides'] }}" target="_blank">
-                  [<i class="fab fa-slideshare"></i> slides]
-                </a>
-              {% endif %}
-              {% if entrie['video'] %}
-                <a href="{{ entrie['video'] }}" target="_blank">
-                  [<i class="fab fa-youtube"></i> video]
-                </a>
-              {% endif %}
-              {% if entrie['text'] %}
-                <button class="button-error pure-button">
-                  <i class="fas fa-certificate"></i> {{ entrie['text'] }}
-                </button>
-              {% endif %}
-            </div>
-            <div class="pure-u-2-24">
-              <a class="post-category" href="{{ entrie['urlcite'] }}">
-                {{ entrie['cite'] }}
-              </a>
-            </div>
-            <div class="pure-u-2-24">
-              <strong>{{ entrie['year'] }}</strong>
-            </div>
+              </div>
+              <div class="pure-u-2-24">
+                <strong>{{ entrie['year'] }}</strong>
+              </div>
+            </article>
             {% endfor %}
-          </ul>
+          </div>
         </section>
       </div>
 
       <!-- Media Appearances -->
       <div class="posts pure-u-24-24">
-        <h1 class="content-subhead">Media Appearances</h1>
+        <h2 class="content-subhead">Media Appearances</h2>
         <section class="post post-description_sameline">
-          <p>In December 2023, I was interviewed by <strong><a href="https://www.audacy.com/kywnewsradio/news/local/what-to-do-xfinity-data-breach-password-security-reset" target="_blank">KYW Newsradio</a></strong> to discuss cybersecurity awareness and recent data breach incidents, highlighting the importance of robust security measures in today's digital landscape.</p>
+          <ul>
+            <li>In December 2023, I was interviewed by <strong><a href="https://www.audacy.com/kywnewsradio/news/local/what-to-do-xfinity-data-breach-password-security-reset" target="_blank">KYW Newsradio</a></strong> to discuss cybersecurity awareness and recent data breach incidents, highlighting the importance of robust security measures in today's digital landscape.</li>
+          </ul>
         </section>
       </div>
 
       <!-- Invited Talks -->
       <div class="posts pure-u-24-24">
-        <h1 class="content-subhead">Invited Talks</h1>
+        <h2 class="content-subhead">Invited Talks</h2>
         <section class="post post-description_sameline">
           <ul>
             <li><strong>Invited Speaker at <a href="https://sapagp.org/event/sapa-gp-2025-annual-conference/" target="_blank">SAPA-GP 2025 Annual Conference</a></strong> (AI and Data Science Track) - Scheduled for 2025 (<a href="https://sapagp.org/wp-content/uploads/2025/03/2025AC-Brochure.pdf#page=19" target="_blank">Conference Brochure, p.19</a>)</li>
@@ -340,9 +531,14 @@
 
       <!-- Honors and Awards -->
       <div class="posts pure-u-24-24">
-        <h1 class="content-subhead">Honors and Awards</h1>
+        <h2 class="content-subhead">Honors and Awards</h2>
         <section class="post post-description_sameline">
           <ul>
+            <li>
+              <a href="{{ url_for('static', filename='files/IEEE_Tale_2025_bestpaper.pdf') }}" target="_blank">
+                Best Paper Award
+              </a>, IEEE TALE, 2025
+            </li>
             <li>
               <a href="http://galaxymentor.com" target="_blank">
                 WCU Provost Research Grant for "Harnessing AI for Tailored Educational Experiences"
@@ -352,9 +548,19 @@
               <a href="#" target="_blank">WCU Student Engagement Award</a>, 2023
             </li>
             <li>
+              <a href="{{ url_for('static', filename='files/R18_BestPaper.pdf') }}" target="_blank">
+                Best Paper Award
+              </a>, PACISE, 2022
+            </li>
+            <li>
               <a href="{{ url_for('static', filename='files/MEMIEEE500.pdf') }}" target="_blank">
                 IEEE Senior Member
               </a>, 2020
+            </li>
+            <li>
+              <a href="{{ url_for('static', filename='files/30_PACISE_Best_Paper.pdf') }}" target="_blank">
+                Best Paper Award
+              </a>, PACISE, 2019
             </li>
             <li>Google Cloud Research Grant, 2019</li>
             <li>
@@ -388,7 +594,7 @@
 
       <!-- Services -->
       <div class="posts pure-u-24-24">
-        <h1 class="content-subhead">Services</h1>
+        <h2 class="content-subhead">Services</h2>
         <section class="post post-description_sameline">
           <ul>
             <li><strong><i class="fas fa-user-tie"></i> Professional Service:</strong></li>
@@ -417,22 +623,26 @@
               <em>The 40th annual Spring Conference hosted by WCU Computer Science Department, with the theme "Cybersecurity in Education"</em>
             </li>
             <li>
-              <strong>Session Chair</strong> for "Wireless Network Security" and "Signal Intelligence" at
-              <a href="https://milcom2023.milcom.org/program/unclassified-technical-program" target="_blank">MILCOM 2023</a>,
-              <a href="https://milcom2024.ieee-milcom.org/program/unclassified-technical-program" target="_blank">MILCOM 2024</a>
+              <strong>Session Chair</strong> at IEEE MILCOM:
+              <ul style="margin-left: 20px;">
+                <li>"Large Language Models" (Track 5.10) at <a href="https://milcom2025.ieee-milcom.org/" target="_blank">MILCOM 2025</a> (Oct 9, 2025)</li>
+                <li>"Wireless Network Security" and "Signal Intelligence" at 
+                  <a href="https://milcom2023.milcom.org/program/unclassified-technical-program" target="_blank">MILCOM 2023</a>, 
+                  <a href="https://milcom2024.ieee-milcom.org/program/unclassified-technical-program" target="_blank">MILCOM 2024</a>
+                </li>
+              </ul>
             </li>
             <li>
-              <strong>Technical Program Committee (TPC)</strong> for
-              <a href="https://milcom2025.ieee-milcom.org/" target="_blank">MILCOM 2025</a>,
-
-              <a href="https://milcom2024.ieee-milcom.org/" target="_blank">MILCOM 2024</a>,
-              <a href="https://milcom2023.milcom.org/" target="_blank">MILCOM 2023</a>,
-              <a href="https://www.comsoc.org/conferences-events/military-communications-conference-2022" target="_blank">MILCOM 2022</a>,
-              <a href="https://dblp.org/rec/conf/milcom/2021" target="_blank">MILCOM 2021</a>,
-              <a href="https://dblp.org/rec/conf/milcom/2019" target="_blank">MILCOM 2019</a>,
-              <a href="https://events.afcea.org/milcom18/public/enter.aspx" target="_blank">MILCOM 2018</a>,
-              <a href="https://dblp.org/rec/conf/milcom/2017" target="_blank">MILCOM 2017</a>,
-              <a href="https://dblp.org/rec/conf/milcom/2016" target="_blank">MILCOM 2016</a>
+              <strong>Technical Program Committee (TPC)</strong> for IEEE MILCOM (2016-2025):<br>
+              <a href="https://milcom2025.ieee-milcom.org/" target="_blank">2025</a>,
+              <a href="https://milcom2024.ieee-milcom.org/" target="_blank">2024</a>,
+              <a href="https://milcom2023.milcom.org/" target="_blank">2023</a>,
+              <a href="https://www.comsoc.org/conferences-events/military-communications-conference-2022" target="_blank">2022</a>,
+              <a href="https://dblp.org/rec/conf/milcom/2021" target="_blank">2021</a>,
+              <a href="https://dblp.org/rec/conf/milcom/2019" target="_blank">2019</a>,
+              <a href="https://events.afcea.org/milcom18/public/enter.aspx" target="_blank">2018</a>,
+              <a href="https://dblp.org/rec/conf/milcom/2017" target="_blank">2017</a>,
+              <a href="https://dblp.org/rec/conf/milcom/2016" target="_blank">2016</a>
             </li>
             <li>
               <strong>Program Committee (PC)</strong> for
@@ -487,13 +697,13 @@
           </ul>
           <ul>
             <li><strong><i class="fas fa-university"></i> University Service:</strong></li>
-            <li>Assistant Chair, Department of Computer Science, 2023–present</li>
+            <li>Assistant Chair, Department of Computer Science, 2023–2025</li>
             <li>WCU Research & Creative Activity Advisory Board (RCAAB), 2023–present</li>
             <li>WCU Committee for Advising Excellence, 2020–present</li>
             <li>CSM Faculty Proposal Review Committee, 2022–present</li>
             <li>Graduate Coordinator for Computer Science, 2020–2023</li>
-            <li>Computer System Coordinator/System Administrator for Computer Science, 2019–present</li>
-            <li>Co-Advisor for WCU Cybersecurity Club, 2020–present <a href="https://ramconnect.wcupa.edu/cyber/home/" target="_blank">[link]</a></li>
+            <li>Computer System Coordinator/System Administrator for Computer Science, 2019–2025</li>
+            <li>Co-Advisor for WCU Cybersecurity Club, 2020–2025 <a href="https://ramconnect.wcupa.edu/cyber/home/" target="_blank">[link]</a></li>
             <li>Advisor for WCU Computer Science Club, 2017–2021</li>
             <li>Co-Advisor for Bin Lu Women in Computer Science Club, 2017–2021</li>
             <li>Coach for ICPC ACM Programming Competition, 2016, 2017</li>
@@ -505,12 +715,13 @@
 
       <!-- Teaching -->
       <div class="posts pure-u-24-24">
-        <h1 class="content-subhead">Teaching</h1>
+        <h2 class="content-subhead">Teaching</h2>
         <section class="post post-description_sameline">
-          <ul><strong>Academic Year 2025-2026:</strong>
+          <p><strong>Academic Year 2025-2026:</strong>
             I am on sabbatical leave for the academic year 2025-2026.
-          </ul>
-          <ul><strong>Previous Courses</strong>
+          </p>
+          <p><strong>Previous Courses</strong></p>
+          <ul>
             <li>
               <i class="fas fa-user-secret"></i>
               Software Security
@@ -546,22 +757,24 @@
         </section>
       </div>
 
+    </main>
+
       <!-- Footer -->
-      <div class="footer pure-u-23-24">
+      <footer class="footer pure-u-23-24" role="contentinfo">
         <div class="pure-menu pure-menu-horizontal">
           <ul>
             <li class="pure-menu-item">
               <a href="https://github.com/quake0day/Dodrio" class="pure-menu-link">
-                © 2025 Si Chen. All Rights Reserved | Design by Si Chen | Powered by Dodrio, Flask, Purecss.io
+                © 2026 Si Chen. All Rights Reserved | Design by Si Chen | Powered by Dodrio, Flask, Purecss.io
               </a>
             </li>
           </ul>
         </div>
-      </div>
+      </footer>
     </div>
   </div>
 
-  <div class="pure-u-xl-2-24 pure-u-sm-22-24 pure-u-md-1-24"></div>
+  <div class="pure-u-xl-2-24 pure-u-sm-22-24 pure-u-md-1-24 sidebar-spacer"></div>
 </div>
 
 <!-- Google Analytics -->

@@ -1,18 +1,15 @@
-DROP TABLE IF EXISTS entries;
-CREATE TABLE entries (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    type INTEGER NOT NULL,
-    title TEXT NOT NULL,
-    author TEXT NOT NULL,
-    confname TEXT NOT NULL,
-    urlpaper TEXT,
-    urlslides TEXT,
-    urlcite TEXT,
-    cite INTEGER NOT NULL,
-    place INTEGER NOT NULL,
-    year INTEGER NOT NULL,
-    text TEXT,
-    video TEXT,
-    cluster TEXT,
-    urlpdf TEXT
+drop table if exists entries;
+create table entries (
+  id integer primary key autoincrement,
+  type integer not null,
+  title text not null,
+  author text not null,
+  confname text not null,
+  urlpaper text,
+  urlslides text,
+  urlcite text,
+  cite integer not null,
+  place integer not null,
+  year integer not null,
+  text text
 );
