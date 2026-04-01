@@ -49,12 +49,12 @@ def query_entries(type_filter=None, year_filter=None, search=None, show_all=Fals
         query += ' AND (title LIKE ? OR author LIKE ? OR confname LIKE ?)'
         term = '%{}%'.format(search)
         params.extend([term, term, term])
-    query += ' ORDER BY year DESC, id DESC'
+    query += ' ORDER BY year DESC, id ASC'
     cur = g.db.execute(query, params)
     return [_row_to_dict(row) for row in cur.fetchall()]
 
 def query_all_entries():
-    cur = g.db.execute('SELECT * FROM entries ORDER BY year DESC, id DESC')
+    cur = g.db.execute('SELECT * FROM entries ORDER BY year DESC, id ASC')
     return [_row_to_dict(row) for row in cur.fetchall()]
 
 @app.route("/")

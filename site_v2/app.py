@@ -42,14 +42,14 @@ def query_entries(type_filter=None, year_filter=None, search=None, show_all=Fals
         query += ' AND (title LIKE ? OR author LIKE ? OR confname LIKE ?)'
         term = f'%{search}%'
         params.extend([term, term, term])
-    query += ' ORDER BY year DESC, id DESC'
+    query += ' ORDER BY year DESC, id ASC'
     return db.execute(query, params).fetchall()
 
 
 @app.route('/')
 def index():
     db = get_db()
-    all_entries = db.execute('SELECT * FROM entries ORDER BY year DESC, id DESC').fetchall()
+    all_entries = db.execute('SELECT * FROM entries ORDER BY year DESC, id ASC').fetchall()
     visible_entries = [e for e in all_entries if not e['hidden']]
     years = sorted(set(e['year'] for e in all_entries), reverse=True)
     types = sorted(set(e['type'] for e in all_entries))
